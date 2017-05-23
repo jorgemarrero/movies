@@ -1,315 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="pelisEOI">
 
 <head>
     <meta charset="UTF-8">
+    <base href="/">
     <title>Pelis EOI</title>
+
+    <link rel="stylesheet" href="./libs/angular-csp.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800">
 </head>
 
-<body>
+<body ng-cloak ng-controller="HomeController as home">
 
-
-    <div id="myNav" class="overlay">
-        <div class="overlay-content-space">
-            <div class="container">
-                <div class="row">
-                    <div class="overlay-content">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <h3 class="negro-claro">Interstellar</h3><span class="compi-titulo-pelicula">2014</span>
-                            </div>
-                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="img/closer.png" alt="Icono para cerrar overlay"></a>
-                        </div>
-                        <hr>
-                        <div class="row ficha-pelicula">
-                            <div class="col-lg-5">
-                                <img src="img/interstellar-poster.jpg" alt="Póster de la película Interstellar" align="left">
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="elementos-espaciados">
-                                    <span class="titulo-dentro-ficha negro-claro pb-10">Sinopsis</span>
-                                    <span class="compi-titulo-pelicula">2h15m</span>
-                                </div>
-                                <div class="elementos-espaciados">
-                                    <span>
-                                        <button class="btn-generos">Aventura</button>
-                                        <button class="btn-generos">Sci-Fi</button>
-                                    </span>
-                                    <div class="pelicula-rating centrado-vertical">
-                                        <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                        <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                        <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                    </div>
-                                </div>
-                                <p>With our time on Earth coming to an end, a team of explorers undertakes the most important mission in human history; traveling beyond this galaxy to discover whether mankind has a future among the stars. (C) Paramount</p>
-
-                                <div class="trailer">
-                                    <div class="titulo-dentro-ficha negro-claro pb-10">Trailer</div>
-                                    <div class="contenedor-video">
-                                        <iframe src="https://www.youtube.com/embed/zSWdZVtXT7E" frameborder="0" allowfullscreen class="video"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <p class="subs-disponibles">Subs: <a href="#">en</a> <a href="#">es</a> <a href="#">de</a></p>
-                        <hr>
-                        
-                        <p class="pb-10">Películas similares</p>
-                        <div class="row peliculas-similares">
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                    <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                    <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                    <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                    <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <nav class="centrado-vertical">
-        <div class="container">
-            <div class="row">
-                <div class="row centrado-vertical">
-                    <div class="col-lg-2">
-                        <img id="logo" src="img/Logo.png" alt="Logo PelisEOI">
-                    </div>
-                    <!--TODO: H2 al menú-->
-                    <ul id="menu-nav" class="col-lg-6">
-                        <li><a href="index.html">Categorías</a></li>
-                        <li><a href="index.html">Mejor valoradas</a></li>
-                        <li><a href="index.html">Populares ahora</a></li>
-                        <li><a href="index.html">Próximamamente</a></li>
-                    </ul>
-
-                    <div id="buscador" class="col-lg-4">
-                        <div class="input-group stylish-input-group">
-
-                            <span class="input-group-addon">
-                                <button type="submit">
-                                   <img src="img/icono-buscar.png" alt="Icono de una lupa">
-                                </button>
-                            </span>
-                            <input type="text" class="form-control negro-claro" placeholder="Encuentra tú película favorita">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
+    <!--MODAL-->
+    <div ng-include="'/partials/modal.html'"></div>
+    <!--NAV-->
+    <div ng-include="'/partials/nav.html'"></div>
+    
     <div class="container mt-68">
         <div class="row">
             <div class="row">
                 <div class="col-lg-3">
-                    <aside>
-                        <div class="mr-30">
-                            <div class="cabecera-contenido centrado-vertical elementos-espaciados">
-                                <div>
-                                    <img src="img/icono-selectores.png" alt="Icono de selectores deslizantes">
-                                    <span id="palabra-selectores-izquierda">Filtrar</span>
-                                </div>
-                                <a id="palabra-selectores-derecha" href="">Borrar</a>
-                            </div>
-
-                            <div class="bloque-selectores">
-                                <p class="cabecera-selectores">
-                                    <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">1979 - 2015</span></span>
-                                </p>
-                                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-                            </div>
-
-                            <div class="bloque-selectores">
-                                <p class="cabecera-selectores">
-                                    <span class="titulo-selectores">Valoración IMDB</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 5</span></span>
-                                </p>
-                                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-
-                            </div>
-
-                            <div class="bloque-selectores">
-                                <p class="cabecera-selectores">
-                                    <span class="titulo-selectores">Rotten Tomatoes - CS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
-                                </p>
-                                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-
-                            </div>
-
-                            <div class="bloque-selectores">
-                                <p class="cabecera-selectores">
-                                    <span class="titulo-selectores">Rotten Tomatoes - AS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
-                                </p>
-                                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-
-                            </div>
-
-                            <div class="bloque-selectores">
-                                <p class="cabecera-selectores">
-                                    <span class="titulo-selectores">Géneros</span>
-                                </p>
-                                <div class="bloque-generos">
-                                    <button class="btn-generos">Acción</button>
-                                    <button class="btn-generos">Aventura</button>
-                                    <button class="btn-generos">Animación</button>
-                                    <button class="btn-generos">Comedia</button>
-                                    <button class="btn-generos">Crimen</button>
-                                    <button class="btn-generos">Documental</button>
-                                    <button class="btn-generos">Drama</button>
-                                    <button class="btn-generos">Familiar</button>
-                                    <button class="btn-generos">Fantasía</button>
-                                    <button class="btn-generos">Históricas</button>
-                                    <button class="btn-generos">Horror</button>
-                                    <button class="btn-generos">Música</button>
-                                    <button class="btn-generos">Misterio</button>
-                                    <button class="btn-generos">Romance</button>
-                                    <button class="btn-generos">Ficción</button>
-                                    <button class="btn-generos">TV Movies</button>
-                                    <button class="btn-generos">Thriller</button>
-                                    <button class="btn-generos">Guerra</button>
-                                    <button class="btn-generos">Western</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </aside>
+                    <!--ASIDE-->
+                    <div ng-include="'/partials/aside.html'"></div>
                 </div>
-
-
-                <main>
-                    <div class="col-lg-9">
-                        <div class="cabecera-contenido centrado-vertical elementos-espaciados">
-                            <span>
-                                <span class="negrita negro-claro">107,520</span>&nbsp;películas encontradas
-                            </span>
-
-                            <a href="">
-                                <span id="enlace-ordenar">Ordenar</span> <img src="img/arrow-down.png" alt="Flecha para ordenar películas">
-                            </a>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="pelicula-poster">
-                                    <img src="img/pelicula-poster.jpg" alt="Póster de la película Temple Grandim">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <div class="pelicula-sombra">
-                                        </div>
-                                        <div class="pelicula-rating centrado-vertical">
-                                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="pelicula-poster">
-                                    <img src="img/pelicula-poster.jpg" alt="Póster de la película Temple Grandim">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <div class="pelicula-sombra">
-                                        </div>
-                                        <div class="pelicula-rating centrado-vertical">
-                                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="pelicula-poster">
-                                    <img src="img/pelicula-poster.jpg" alt="Póster de la película Temple Grandim">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <div class="pelicula-sombra">
-                                        </div>
-                                        <div class="pelicula-rating centrado-vertical">
-                                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="pelicula-poster">
-                                    <img src="img/pelicula-poster.jpg" alt="Póster de la película Temple Grandim">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <div class="pelicula-sombra">
-                                        </div>
-                                        <div class="pelicula-rating centrado-vertical">
-                                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="pelicula-poster">
-                                    <img src="img/pelicula-poster.jpg" alt="Póster de la película Temple Grandim">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <div class="pelicula-sombra">
-                                        </div>
-                                        <div class="pelicula-rating centrado-vertical">
-                                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="pelicula-poster">
-                                    <img src="img/pelicula-poster.jpg" alt="Póster de la película Temple Grandim">
-                                    <a href="javascript:void(0)" onclick="openNav()">
-                                        <div class="pelicula-sombra">
-                                        </div>
-                                        <div class="pelicula-rating centrado-vertical">
-                                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </main>
+                <!--MAIN-->
+                <div ng-include="'/partials/main.html'"></div>
             </div>
-
         </div>
     </div>
 
+
+    <script src="./libs/angular.min.js"></script>
+    <script src="./libs/angular-route.min.js"></script>
+
+    <!-- App -->
+    <script src="./js/app.js"></script>
+    <!-- Services -->
+    <script src="./js/factories/movies.factory.js"></script>
+    <!-- Components -->
+    <!-- Controllers -->
+    <script src="./js/controllers/home.controller.js"></script>
+
+       
     <script>
         function openNav() {
             document.getElementById("myNav").style.left = "0";
@@ -320,7 +55,6 @@
         }
 
     </script>
-
 
 </body>
 
