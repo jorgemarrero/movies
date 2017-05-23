@@ -1,0 +1,392 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    color: #5c6269;
+}
+
+nav {
+    z-index: 2;
+    background-color: #1b2126;
+    height: 68px;
+    position: fixed; 
+    left: 0px; 
+    right: 0px;
+    top: 0px;
+}
+
+aside {
+    border-right: 1px solid #e9ecee;
+    height: 1000px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.pelicula-rating {
+    display: flex;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.pelicula-rating > span {
+    flex-grow: 1;
+    text-align: center;
+}
+.pelicula-rating > span > img {
+    padding-right: 8px;
+}
+
+
+/* ALINEACIONES */ 
+.centrado-vertical {
+    display: flex;
+    align-items: center;
+}
+.centro-horizontal {
+    display: flex;
+    justify-content: center;
+}
+.elementos-espaciados {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* MARGENES */
+.mr-30 {
+    margin-right: 30px;
+}
+.mt-68 {
+    margin-top: 68px;
+}
+.pb-10 {
+    padding-bottom: 10px;
+}
+/**/
+
+.cabecera-contenido {
+    height: 68px;
+}
+
+.negrita {
+    font-weight: 600;
+}
+
+.negro-claro {
+    color: #1b2126;
+}
+
+
+/* ASIDE */ 
+.bloque-selectores {
+    height: 100px;
+}
+.cabecera-selectores {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 23px;
+}
+
+.titulo-selectores {
+    color: #1b2126;
+    font-weight: 600;
+    margin-top: -3px;
+}
+.borde-seleccion {
+    border: 2px solid #e9ecee;
+    border-radius: 10px;
+    height: 19px;
+    padding-right: 9px;
+    padding-left: 9px;
+}
+.texto-seleccion {
+    color: #ebeef0;
+    font-size: 0.875em;
+    font-weight: 700;
+    position: relative;
+    top: -4px;
+}
+
+.bloque-generos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btn-generos {
+    background-color: transparent;
+    width: 115px;
+    height: 33px;
+    border: 2px solid #e9ecee;
+    border-radius: 6px;
+    text-align: center;
+    color: #8e9297;
+    padding-top: 1px;
+    margin-bottom: 9px;
+    cursor: pointer;
+}
+.btn-generos:focus, .btn-generos:active:focus, .btn-generos.active:focus {
+    outline: 0 none;
+    border-color: #2883d8;
+    color: #2883d8;
+}
+/**/
+
+
+/* Menú buscador */
+.input-group {
+    background-color: #5c6269;
+    border-radius: 6px;
+}
+.stylish-input-group .form-control{
+    background-color: transparent;
+	border:0; 
+    padding-left: 0;
+	box-shadow:0 0 0; 
+}
+.stylish-input-group button{
+    border:0px;
+    background:transparent;
+}
+
+.stylish-input-group button:focus, .stylish-input-group button:active:focus, .stylish-input-group button.active:focus {
+    outline: 0 none;
+}
+
+.stylish-input-group .input-group-addon {
+    padding: 0px 9px;
+    border: 0;
+    background-color: transparent;
+}
+.stylish-input-group .form-control {
+    height: 38px;
+}
+
+.stylish-input-group .glyphicon {
+    color: white;
+    font-size: 18px;
+}
+/**/
+
+.pelicula-poster {
+    height: 403px;
+    margin-bottom: 27px;
+}
+.pelicula-poster > img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.pelicula-poster > a {
+    position: relative;
+    top: -403px; 
+}
+.pelicula-poster .pelicula-sombra {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    z-index: 1;
+    width: 100%;
+    height: 361px;
+    background-color: black;
+    visibility: hidden;
+    opacity: 0.6;
+}
+
+.pelicula-poster:hover .pelicula-sombra {
+    visibility: visible;
+}
+
+.pelicula-poster .pelicula-rating {
+    color: #ffffff;
+    background-color: black;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.82);
+    width: 100%;
+    height: 42px;
+    visibility: hidden;
+}
+
+.pelicula-poster:hover .pelicula-rating {
+    visibility: visible;
+}
+
+/*MENU NAV*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 6px;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    color: #b2b5b8;
+    display: block;
+    text-align: center;
+    padding-right: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+li a:hover {
+    color: #ffffff;
+}
+/**/
+
+
+/* IDs*/
+#menu-nav {
+    margin-top: 3px;
+    display: inline-block;
+}
+#enlace-ordenar {
+    color: #5c6269;
+    padding-right: 9px;
+}
+#logo {
+    margin-top: 8px;
+}
+/*aside*/
+#menu-lateral:after {
+    content: "";
+    display: block;
+    border-right: 1px solid blue;
+}
+#palabra-selectores-izquierda {
+    padding-left: 30px;
+}
+#palabra-selectores-derecha {
+    color: #f3644f;
+    cursor: pointer;
+}
+/**/
+
+
+
+/* MODAL */
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content-space {
+    background-color: white;
+    position: relative;
+    width: 1224px;
+    margin-left: auto;
+    margin-right: 0;
+}
+.overlay-content {
+    padding: 20px;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 25px;
+    right: 45px;
+}
+
+.overlay h3 {
+    font-size: 2.125em;
+    font-weight: 300;
+    display: inline-block;
+}
+.overlay hr {
+    color: #e9ecee;
+}
+
+.compi-titulo-pelicula {
+    padding-left: 8px;
+    font-size: 1.25em;
+    font-weight: 300;
+    color: #a5a8ac;
+}
+
+.ficha-pelicula {
+    height: 660px;
+}
+.ficha-pelicula > img {
+    height: 660px;
+    width: 440px;
+}
+.ficha-pelicula > .col-lg-7 {
+    height: 100%;
+    padding-left: 0px;
+}
+.titulo-dentro-ficha {
+    font-size: 1.55em;
+    font-weight: 300;
+}
+.ficha-pelicula .pelicula-rating {
+    color: #c0c4c8;
+}
+.ficha-pelicula .pelicula-rating > span > img {
+    padding-left: 32px;
+}
+.ficha-pelicula p {
+    padding-top: 30px;
+    color: #8e9297;
+}
+.ficha-pelicula .btn-generos {
+    background-color: #e9ecee;
+    width: 71px;
+    height: 28px;
+    color: #5c6269;
+    font-size: 0.875em;
+    padding-top: 1px;
+    cursor: default;
+}
+.trailer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-right: 15px;
+}
+
+.contenedor-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.peliculas-similares img {
+    width: 100%;
+}
+.peliculas-similares p {
+    text-align: center;
+}
+
+.subs-disponibles {
+    margin-top: 10px;
+    font-size: 1.125em;
+    font-weight: 700;
+    color: #8e9297;
+}
+
+.subs-disponibles > a {
+    font-weight: 400;
+    color: #8e9297;
+    text-decoration: underline;
+}
