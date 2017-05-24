@@ -1,6 +1,6 @@
 <aside>
     <div class="mr-30">
-        <form name="myForm" novalidate>
+        <form name="filterForm" novalidate>
             <div class="cabecera-contenido centrado-vertical elementos-espaciados">
                 <div>
                     <img src="img/icono-selectores.png" alt="Icono de selectores deslizantes">
@@ -14,7 +14,8 @@
                     <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">1979 - 2015</span></span>
                 </p>
                 <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-                <input type="range" multiple value="10,80" />
+                <input type="number" name="year_lower" ng-model="home.filtering.yearLower" min="1900" max="2017" ng-change="home.getFilteredMovies()">
+                <input type="number" name="year_higher" ng-model="home.filtering.yearHigher" min="1900" max="2017" ng-change="home.getFilteredMovies()">
             </div>
 
             <div class="bloque-selectores">
@@ -22,7 +23,8 @@
                     <span class="titulo-selectores">Valoración IMDB</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 5</span></span>
                 </p>
                 <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-
+                <input type="number" name="imdb_lower" ng-model="home.filtering.imdbLower" min="0" max="10" ng-change="home.getFilteredMovies()">
+                <input type="number" name="imdb_higher" ng-model="home.filtering.imdbHigher" min="0" max="10" ng-change="home.getFilteredMovies()">
             </div>
 
             <div class="bloque-selectores">
@@ -30,7 +32,8 @@
                     <span class="titulo-selectores">Rotten Tomatoes - CS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
                 </p>
                 <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-
+                <input type="number" name="rtcs_lower" ng-model="home.filtering.rtcsLower" min="0" max="100" ng-change="home.getFilteredMovies()">
+                <input type="number" name="rtcs_higher" ng-model="home.filtering.rtcsHigher" min="0" max="100" ng-change="home.getFilteredMovies()">
             </div>
 
             <div class="bloque-selectores">
@@ -38,7 +41,8 @@
                     <span class="titulo-selectores">Rotten Tomatoes - AS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
                 </p>
                 <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-
+                <input type="number" name="rtas_lower" ng-model="home.filtering.rtasLower" min="0" max="100" ng-change="home.getFilteredMovies()">
+                <input type="number" name="rtas_higher" ng-model="home.filtering.rtasHigher" min="0" max="100" ng-change="home.getFilteredMovies()">
             </div>
 
             <div class="bloque-selectores">
@@ -46,25 +50,25 @@
                     <span class="titulo-selectores">Géneros</span>
                 </p>
                 <div class="bloque-generos">
-                    <button class="btn-generos">Acción</button>
-                    <button class="btn-generos">Aventura</button>
-                    <button class="btn-generos">Animación</button>
-                    <button class="btn-generos">Comedia</button>
-                    <button class="btn-generos">Crimen</button>
-                    <button class="btn-generos">Documental</button>
-                    <button class="btn-generos">Drama</button>
-                    <button class="btn-generos">Familiar</button>
-                    <button class="btn-generos">Fantasía</button>
-                    <button class="btn-generos">Históricas</button>
-                    <button class="btn-generos">Horror</button>
-                    <button class="btn-generos">Música</button>
-                    <button class="btn-generos">Misterio</button>
-                    <button class="btn-generos">Romance</button>
-                    <button class="btn-generos">Ficción</button>
-                    <button class="btn-generos">TV Movies</button>
-                    <button class="btn-generos">Thriller</button>
-                    <button class="btn-generos">Guerra</button>
-                    <button class="btn-generos">Western</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(28)}" ng-click="home.filterByGenres(28)">Acción</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(12)}" ng-click="home.filterByGenres(12)">Aventura</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(16)}" ng-click="home.filterByGenres(16)">Animación</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(35)}" ng-click="home.filterByGenres(35)">Comedia</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(80)}" ng-click="home.filterByGenres(80)">Crimen</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(99)}" ng-click="home.filterByGenres(99)">Documental</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(18)}" ng-click="home.filterByGenres(18)">Drama</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(10751)}" ng-click="home.filterByGenres(10751)">Familiar</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(14)}" ng-click="home.filterByGenres(14)">Fantasía</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(878)}" ng-click="home.filterByGenres(878)">Ficción</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(10752)}" ng-click="home.filterByGenres(10752)">Guerra</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(36)}" ng-click="home.filterByGenres(36)">Históricas</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(27)}" ng-click="home.filterByGenres(27)">Horror</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(9648)}" ng-click="home.filterByGenres(9648)">Misterio</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(10402)}" ng-click="home.filterByGenres(10402)">Música</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(10749)}" ng-click="home.filterByGenres(10749)">Romance</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(53)}" ng-click="home.filterByGenres(53)">Thriller</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(10770)}" ng-click="home.filterByGenres(10770)">TV Movies</button>
+                    <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(37)}" ng-click="home.filterByGenres(37)">Western</button>
                 </div>
             </form>
 

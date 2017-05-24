@@ -125,7 +125,7 @@ a:hover {
     margin-bottom: 9px;
     cursor: pointer;
 }
-.btn-generos:focus, .btn-generos:active:focus, .btn-generos.active:focus {
+.btn-generos-selected {
     outline: 0 none;
     border-color: #2883d8;
     color: #2883d8;
