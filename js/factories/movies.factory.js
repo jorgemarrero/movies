@@ -108,7 +108,7 @@
         }
 
         function getMovieVideo(videos, toReturn, movie) {
-            toReturn.video = videos.data.results[0].key;
+            if(videos.data.results[0]) toReturn.video = videos.data.results[0].key;
             return $http({
                 method : "GET",
                 url : "https://api.themoviedb.org/3/movie/" + movie.id + "/similar?api_key=" + API_KEY
@@ -132,8 +132,10 @@
         }
 
         function getMovieRating(rating, toReturn) {
-            toReturn.votes.rt = rating.data.Ratings[1].Value;
-            toReturn.votes.mc = rating.data.Ratings[2].Value.slice(0, 2) + "%";
+            console.log(rating);
+            console.log(toReturn);
+            if(rating.data.Ratings[1]) toReturn.votes.rt = rating.data.Ratings[1].Value;
+            if(rating.data.Ratings[2]) toReturn.votes.mc = rating.data.Ratings[2].Value.slice(0, 2) + "%";
             return toReturn;
         }
 
