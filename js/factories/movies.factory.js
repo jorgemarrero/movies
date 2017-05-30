@@ -15,8 +15,7 @@
         return {
             getPopular: getPopular,
             getFiltered: getFiltered,
-            getMovie: getMovie,
-            getRatings: getRatings
+            getMovie: getMovie
         }
 
         /////////////////////////////////////////
@@ -91,27 +90,6 @@
             }
         }*/
 
-        function getRatings(id) {
-            return $http({
-                method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + id + "?api_key=" + API_KEY
-            })
-            .then (function(data) {
-                console.log(data);
-                console.log(data.data.imdb_id);
-
-                return $http({
-                    method : "GET",
-                    url : "http://www.omdbapi.com/?apikey=3370463f&i=" + data.data.imdb_id
-                })
-                .then (function(data) {
-                    console.log(data);
-                    return true;
-                });
-            });    
-
-        }
-
         /////////////////////////////
 
         function getMovieSucess(data, toReturn, movie) {
@@ -126,25 +104,36 @@
                 method : "GET",
                 url : "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=" + API_KEY
             })
-            .then ((videos) => getMovieVideo(videos, toReturn));
+            .then ((videos) => getMovieVideo(videos, toReturn, movie));
         }
 
-        function getMovieVideo(videos, toReturn) {
+        function getMovieVideo(videos, toReturn, movie) {
             toReturn.video = videos.data.results[0].key;
-            return toReturn;
-/*            return $http({
+            return $http({
+                method : "GET",
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/similar?api_key=" + API_KEY
+            })
+            .then ((simil) => getMovieSimilars(simil, toReturn));
+        }
+
+        function getMovieSimilars(simil, toReturn) {
+            toReturn.similars = [];
+            simil.data.results.some(function(value, index) {
+                if (simil.total_results < index) return true;
+                toReturn.similars.push(value);
+                if (index == 3) return true;
+            });
+
+            return $http({
                 method : "GET",
                 url : "http://www.omdbapi.com/?apikey=" + API_KEY_OMDB + "&i=" + toReturn.imdb_id
             })
-            .then ((rating) => getMovieRating(rating, toReturn));*/
+            .then ((rating) => getMovieRating(rating, toReturn));
         }
 
         function getMovieRating(rating, toReturn) {
-            console.log(rating);
-            toReturn.votes = {
-                rt: rating.data.Rating[1].value,
-                mc: rating.data.Rating[2].value
-            };
+            toReturn.votes.rt = rating.data.Ratings[1].Value;
+            toReturn.votes.mc = rating.data.Ratings[2].Value.slice(0, 2) + "%";
             return toReturn;
         }
 

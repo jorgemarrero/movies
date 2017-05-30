@@ -26,9 +26,9 @@
                                     </span>
                                 </span>
                                 <div class="pelicula-rating centrado-vertical">
-                                    <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{home.movieSelected.vote}}</span>
-                                    <span><img src="img/icono-tomate.png" alt="Icono de un tomate">-</span>
-                                    <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">-</span>
+                                    <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{home.movieSelected.votes.tmdb}}</span>
+                                    <span><img src="img/icono-tomate.png" alt="Icono de un tomate">{{home.movieSelected.votes.rt}}</span>
+                                    <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">{{home.movieSelected.votes.mc}}</span>
                                 </div>
                             </div>
                             <p>{{home.movieSelected.description}}</p>
@@ -48,28 +48,10 @@
 
                     <p class="pb-10">Películas similares</p>
                     <div class="row peliculas-similares">
-                        <div class="col-lg-3">
+                        <div class="col-lg-3" ng-repeat="similar in home.movieSelected.similars track by similar.id">
                             <a href="#">
-                                <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                            </a>
-                        </div>
-                        <div class="col-lg-3">
-                            <a href="#">
-                                <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                            </a>
-                        </div>
-                        <div class="col-lg-3">
-                            <a href="#">
-                                <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                <p class="titulo-dentro-ficha negro-claro">Inception</p>
-                            </a>
-                        </div>
-                        <div class="col-lg-3">
-                            <a href="#">
-                                <img src="img/inception-miniatura.jpg" alt="Miniatura de la película Inceptionr">
-                                <p class="titulo-dentro-ficha negro-claro">Inception</p>
+                                <img src="https://image.tmdb.org/t/p/w342{{similar.poster_path}}" alt="Miniatura de la película">
+                                <p class="titulo-dentro-ficha negro-claro">{{similar.title}}</p>
                             </a>
                         </div>
                     </div>
