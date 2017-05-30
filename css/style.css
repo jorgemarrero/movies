@@ -324,6 +324,9 @@ li a:hover {
     height: 660px;
     width: 440px;
 }
+.ficha-pelicula-poster {
+    width: 440px;
+}
 .ficha-pelicula > .col-lg-7 {
     height: 100%;
     padding-left: 0px;

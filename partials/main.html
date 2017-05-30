@@ -14,13 +14,13 @@
             <div class="col-lg-4" ng-repeat="movie in home.movies | filter:search track by movie.id">
                 <div class="pelicula-poster">
                     <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
-                    <a href="javascript:void(0)" onclick="openNav()">
+                    <a href="javascript:void(0)" onclick="openNav()" ng-click="home.openNav(movie)">
                         <div class="pelicula-sombra">
                         </div>
                         <div class="pelicula-rating centrado-vertical">
-                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">8.4</span>
-                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">77%</span>
-                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">77%</span>
+                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{movie.vote_average}}</span>
+                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">-</span>
+                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">-</span>
                         </div>
                     </a>
                 </div>

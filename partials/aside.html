@@ -20,14 +20,13 @@
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Valoración IMDB</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 5</span></span>
+                    <span class="titulo-selectores">Valoración</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 10</span></span>
                 </p>
-                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-                <input type="number" name="imdb_lower" ng-model="home.filtering.imdbLower" min="0" max="10" ng-change="home.getFilteredMovies()">
-                <input type="number" name="imdb_higher" ng-model="home.filtering.imdbHigher" min="0" max="10" ng-change="home.getFilteredMovies()">
+                <input type="number" name="vote_lower" ng-model="home.filtering.voteLower" min="0" max="10" ng-change="home.getFilteredMovies()">
+                <input type="number" name="vote_higher" ng-model="home.filtering.voteHigher" min="0" max="10" ng-change="home.getFilteredMovies()">
             </div>
 
-            <div class="bloque-selectores">
+<!--            <div class="bloque-selectores">
                 <p class="cabecera-selectores">
                     <span class="titulo-selectores">Rotten Tomatoes - CS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
                 </p>
@@ -43,7 +42,7 @@
                 <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
                 <input type="number" name="rtas_lower" ng-model="home.filtering.rtasLower" min="0" max="100" ng-change="home.getFilteredMovies()">
                 <input type="number" name="rtas_higher" ng-model="home.filtering.rtasHigher" min="0" max="100" ng-change="home.getFilteredMovies()">
-            </div>
+            </div>-->
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">

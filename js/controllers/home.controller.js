@@ -9,17 +9,17 @@
     function HomeController($scope, MoviesFactory) {
         var home = this;
         home.movies = [];
+        home.movieSelected = {
+            movie: "2LIQ2-PZBC8"
+        };
         home.filtering = {
             yearLower: 1900,
             yearHigher: 2017,
-            imdbLower: 0,
-            imdbHigher: 10,
-            rtcsLower: 0,
-            rtcsHigher: 100,
-            rtasLower: 0,
-            rtasHigher: 100,
+            voteLower: 0,
+            voteHigher: 10,
             genres: []
         }
+
         home.totalResults = 0;
 
 
@@ -29,6 +29,7 @@
         home.getFilteredMovies = getFilteredMovies;
         home.filterByGenres = filterByGenres;
         home.isGenreSelected = isGenreSelected;
+        home.openNav = openNav;
                
 
         activate();
@@ -53,7 +54,7 @@
             MoviesFactory.getFiltered(home.filtering).then(function(data){
                 home.totalResults = data.total;
                 home.movies = data.movies;
-                console.log(home.movies);
+                console.log(home.movies);        
             });
         }
 
@@ -79,6 +80,17 @@
             });
 
             return isSelected;
+        }
+
+        /////////////
+
+        function openNav(movie) {
+            console.log(movie);
+            MoviesFactory.getMovie(movie).then(function(data){
+                home.movieSelected = data;
+                console.log(home.movieSelected);
+                
+            });
         }
     }
 })();
