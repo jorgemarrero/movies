@@ -15,6 +15,7 @@
         return {
             getPopular: getPopular,
             getUpcoming: getUpcoming,
+            getSearch: getSearch,
             getFiltered: getFiltered,
             getMovie: getMovie
         }
@@ -39,6 +40,20 @@
             return $http({
                 method : "GET",
                 url : "https://api.themoviedb.org/3/movie/upcoming?api_key=" + API_KEY + "&language=es-ES&region=ES"
+            })
+            .then (function(data) {
+                console.log(data);
+                var toReturn = [];
+                toReturn.total = data.data.total_results;
+                toReturn.movies = data.data.results;
+                return toReturn;
+            });
+        }
+
+        function getSearch(toSearch) {
+            return $http({
+                method : "GET",
+                url : "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=es-ES&query=" + toSearch + "&include_adult=false&region=ES"
             })
             .then (function(data) {
                 console.log(data);

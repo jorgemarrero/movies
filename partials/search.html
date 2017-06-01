@@ -1,16 +1,11 @@
-<main>
+<div class="container mt-68">
     <div class="cabecera-contenido centrado-vertical elementos-espaciados">
         <span>
-            <span class="negrita negro-claro">{{home.totalResults}}</span>&nbsp;películas encontradas
+            <span class="negrita negro-claro">{{home.search.totalResults}}</span>&nbsp;películas encontradas para "{{home.search.query}}"
         </span>
-
-        <a href="">
-            <span id="enlace-ordenar">Ordenar</span> <img src="img/arrow-down.png" alt="Flecha para ordenar películas">
-        </a>
-
     </div>
     <div class="row">
-        <div class="col-lg-4" ng-repeat="movie in home.movies track by movie.id">
+        <div class="col-lg-3" ng-repeat="movie in home.search.movies | filter:search track by movie.id">
             <div class="pelicula-poster">
                 <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
                 <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
@@ -25,4 +20,4 @@
             </div>
         </div>
     </div> 
-</main>
+</div>

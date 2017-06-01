@@ -20,6 +20,11 @@
             genres: []
         }
 
+        home.search = [];
+        home.search.query = "";
+        home.search.totalResults = 0;
+        home.search.movies = [];
+
         home.totalResults = 0;
 
         /**********************************/
@@ -39,6 +44,7 @@
         home.getFilteredMovies = getFilteredMovies;
         home.getPopularMovies = getPopularMovies;
         home.getUpcomingMovies = getUpcomingMovies;
+        home.getSearchMovies = getSearchMovies;
         home.filterByGenres = filterByGenres;
         home.isGenreSelected = isGenreSelected;
         home.openNav = openNav;
@@ -65,6 +71,14 @@
             MoviesFactory.getUpcoming().then(function(data){
                 home.totalResults = data.total;
                 home.movies = data.movies;
+                console.log(home.movies);
+            });
+        }
+
+        function getSearchMovies() {
+            MoviesFactory.getSearch(home.search.query).then(function(data){
+                home.search.totalResults = data.total;
+                home.search.movies = data.movies;
                 console.log(home.movies);
             });
         }
