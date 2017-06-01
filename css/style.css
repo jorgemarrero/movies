@@ -1,3 +1,5 @@
+:focus {outline:none;}
+
 body {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
@@ -326,6 +328,7 @@ li a:hover {
 }
 .ficha-pelicula-poster {
     width: 440px;
+    height: 660px;
 }
 .ficha-pelicula > .col-lg-7 {
     height: 100%;
@@ -347,7 +350,7 @@ li a:hover {
 }
 .ficha-pelicula .btn-generos {
     background-color: #e9ecee;
-    width: 71px;
+    width: initial;
     height: 28px;
     color: #5c6269;
     font-size: 0.875em;
