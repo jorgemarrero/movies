@@ -72,6 +72,7 @@
         home.filterByGenres = filterByGenres;
         home.isGenreSelected = isGenreSelected;
         home.openNav = openNav;
+        home.clearFilters = clearFilters;
                
 
         activate();
@@ -168,6 +169,22 @@
                 home.movieSelected = data;
                 console.log(home.movieSelected);
             });
+        }
+
+        function clearFilters() {
+            home.filtering = {
+                yearLower: 1900,
+                yearHigher: 2017,
+                voteLower: 0,
+                voteHigher: 10,
+                genres: []
+            }  
+            home.yearSlider.minValue = home.filtering.yearLower;
+            home.yearSlider.maxValue = home.filtering.yearHigher;
+            home.voteSlider.minValue = home.filtering.voteLower;
+            home.voteSlider.maxValue = home.filtering.voteHigher;
+
+            getFilteredMovies();
         }
     }
 })();
