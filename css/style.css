@@ -270,7 +270,7 @@ li a:hover {
 
 
 
-/* MODAL */
+/* MODAL 
 .overlay {
     height: 100%;
     width: 100%;
@@ -282,7 +282,7 @@ li a:hover {
     background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
-}
+}*/
 
 .overlay-content-space {
     background-color: white;
@@ -295,18 +295,18 @@ li a:hover {
     padding: 20px;
 }
 
-.overlay .closebtn {
+.overlay-content .closebtn {
     position: absolute;
     top: 25px;
     right: 45px;
 }
 
-.overlay h3 {
+.overlay-content h3 {
     font-size: 2.125em;
     font-weight: 300;
     display: inline-block;
 }
-.overlay hr {
+.overlay-content hr {
     color: #e9ecee;
 }
 
@@ -393,3 +393,51 @@ li a:hover {
     color: #8e9297;
     text-decoration: underline;
 }
+
+
+/*******************************
+* MODAL 
+*******************************/
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 1200px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+	
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+        
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #FAFAFA;
+	}

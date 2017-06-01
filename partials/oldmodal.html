@@ -1,0 +1,62 @@
+<div id="myNav" class="overlay">
+    <div class="overlay-content-space">
+        <div class="container">
+            <div class="row">
+                <div class="overlay-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="negro-claro">{{home.movieSelected.title}}</h3><span class="compi-titulo-pelicula">{{home.movieSelected.year}}</span>
+                        </div>
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="img/closer.png" alt="Icono para cerrar overlay"></a>
+                    </div>
+                    <hr>
+                    <div class="row ficha-pelicula">
+                        <div class="col-lg-5">
+                            <img class="ficha-pelicula-poster" src="https://image.tmdb.org/t/p/w500{{home.movieSelected.poster_path}}" alt="Póster de la película Interstellar" align="left">
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="elementos-espaciados">
+                                <span class="titulo-dentro-ficha negro-claro pb-10">Sinopsis</span>
+                                <span class="compi-titulo-pelicula">{{home.movieSelected.runtime.hours}}h{{home.movieSelected.runtime.minutes}}m</span>
+                            </div>
+                            <div class="elementos-espaciados">
+                                <span>
+                                    <span ng-repeat="genres in home.movieSelected.genres track by $index">
+                                        <button class="btn-generos">{{genres}}</button>
+                                    </span>
+                                </span>
+                                <div class="pelicula-rating centrado-vertical">
+                                    <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{home.movieSelected.votes.tmdb}}</span>
+                                    <span><img src="img/icono-tomate.png" alt="Icono de un tomate">{{home.movieSelected.votes.rt}}</span>
+                                    <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">{{home.movieSelected.votes.mc}}</span>
+                                </div>
+                            </div>
+                            <p>{{home.movieSelected.description}}</p>
+
+                            <div class="trailer">
+                                <div class="titulo-dentro-ficha negro-claro pb-10">Trailer</div>
+                                <div class="contenedor-video">
+
+                                    <iframe src="https://www.youtube.com/embed/sMKoNBRZM1M" frameborder="0" allowfullscreen class="video"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="subs-disponibles">Subs: <a href="#">en</a> <a href="#">es</a> <a href="#">de</a></p>
+                    <hr>
+
+                    <p class="pb-10">Películas similares</p>
+                    <div class="row peliculas-similares">
+                        <div class="col-lg-3" ng-repeat="similar in home.movieSelected.similars track by similar.id">
+                            <a href="#">
+                                <img src="https://image.tmdb.org/t/p/w342{{similar.poster_path}}" alt="Miniatura de la película">
+                                <p class="titulo-dentro-ficha negro-claro">{{similar.title}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

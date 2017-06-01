@@ -14,7 +14,7 @@
             <div class="col-lg-4" ng-repeat="movie in home.movies | filter:search track by movie.id">
                 <div class="pelicula-poster">
                     <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
-                    <a href="javascript:void(0)" onclick="openNav()" ng-click="home.openNav(movie)">
+                    <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
                         <div class="pelicula-sombra">
                         </div>
                         <div class="pelicula-rating centrado-vertical">
