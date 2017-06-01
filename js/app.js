@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('pelisEOI', ['ngRoute', 'ngYoutubeEmbed']).config(config);
+    angular.module('pelisEOI', ['ngRoute', 'ngYoutubeEmbed', 'rzModule']).config(config);
 
     config.$inject=['$routeProvider','$locationProvider'];
 
@@ -20,7 +20,5 @@
                 controller: 'HomeController as home',
                 templateUrl: '/views/upcoming.html'
             })
-
     }
-
 })();

@@ -13,30 +13,33 @@
                 <p class="cabecera-selectores">
                     <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">1979 - 2015</span></span>
                 </p>
-                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-                <input type="number" name="year_lower" ng-model="home.filtering.yearLower" min="1900" max="2017" ng-change="home.getFilteredMovies()">
-                <input type="number" name="year_higher" ng-model="home.filtering.yearHigher" min="1900" max="2017" ng-change="home.getFilteredMovies()">
-                
+                <rzslider class="custom-slider years-sliders"
+                          rz-slider-model="home.yearSlider.minValue"
+                          rz-slider-high="home.yearSlider.maxValue"
+                          rz-slider-options="home.yearSlider.options">
+                </rzslider>
+               
             </div>
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
                     <span class="titulo-selectores">Valoración</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 10</span></span>
                 </p>
-                <input type="number" name="vote_lower" ng-model="home.filtering.voteLower" min="0" max="10" ng-change="home.getFilteredMovies()">
-                <input type="number" name="vote_higher" ng-model="home.filtering.voteHigher" min="0" max="10" ng-change="home.getFilteredMovies()">
-            </div>
-
-<!--            <div class="bloque-selectores">
-                <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Rotten Tomatoes - CS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
-                </p>
-                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-                <input type="number" name="rtcs_lower" ng-model="home.filtering.rtcsLower" min="0" max="100" ng-change="home.getFilteredMovies()">
-                <input type="number" name="rtcs_higher" ng-model="home.filtering.rtcsHigher" min="0" max="100" ng-change="home.getFilteredMovies()">
+                <rzslider class="custom-slider"
+                          rz-slider-model="home.voteSlider.minValue"
+                          rz-slider-high="home.voteSlider.maxValue"
+                          rz-slider-options="home.voteSlider.options">
+                </rzslider>
             </div>
 
             <div class="bloque-selectores">
+                <p class="cabecera-selectores">
+                    <span class="titulo-selectores">Rotten Tomatoes - CS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
+                </p>
+
+            </div>
+
+<!--            <div class="bloque-selectores">
                 <p class="cabecera-selectores">
                     <span class="titulo-selectores">Rotten Tomatoes - AS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
                 </p>
@@ -71,29 +74,6 @@
                     <button class="btn-generos" ng-class="{'btn-generos-selected' : home.isGenreSelected(37)}" ng-click="home.filterByGenres(37)">Western</button>
                 </div>
             </form>
-                <div class="slider slider-horizontal" id="">
-                    <div class="slider-track">
-                        <div class="slider-track-low" style="left: 0px; width: 10.101%;">
-                        </div>
-                        <div class="slider-selection" style="left: 10.101%; width: 82.3232%;">
-                        </div>
-                        <div class="slider-track-high" style="right: 0px; width: 7.57576%;">
-                        </div>
-                    </div>
-                <div class="tooltip tooltip-main top" role="presentation" style="left: 51.2626%; margin-left: -33px;">
-                    <div class="tooltip-arrow">
-                    </div>
-                    <div class="tooltip-inner">110 : 925
-                    </div>
-                </div>
-                <div class="tooltip tooltip-min top" role="presentation" style="left: 10.101%; margin-left: 0px; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">110</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 92.4242%; margin-left: 0px; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">925</div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="10" aria-valuemax="1000" aria-valuenow="110" tabindex="0" style="left: 10.101%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="10" aria-valuemax="1000" aria-valuenow="925" tabindex="0" style="left: 92.4242%;"></div></div>
-                <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
-            
-            <rzslider   rz-slider-model="home.slider.minValue"
-                        rz-slider-high="home.slider.maxValue"
-                        rz-slider-options="home.slider.options"></rzslider>
-            
-
         </div>
     </div>
 </aside>

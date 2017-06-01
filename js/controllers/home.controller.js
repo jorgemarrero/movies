@@ -28,13 +28,37 @@
         home.totalResults = 0;
 
         /**********************************/
-        home.slider = {
-            minValue: 10,
-            maxValue: 90,
+        home.yearSlider = {
+            minValue: home.filtering.yearLower,
+            maxValue: home.filtering.yearHigher,
             options: {
-                floor: 0,
-                ceil: 100,
-                step: 1
+                floor: home.filtering.yearLower,
+                ceil: home.filtering.yearHigher,
+                step: 1,
+                hideLimitLabels: true,
+                selectionBarGradient: {
+                    from: '#2783d8',
+                    to: '#3db879'
+                },
+                onEnd: getFromSliders,
+                id: 'year',
+            }
+        };
+
+        home.voteSlider = {
+            minValue: home.filtering.voteLower,
+            maxValue: home.filtering.voteHigher,
+            options: {
+                floor: home.filtering.voteLower,
+                ceil: home.filtering.voteHigher,
+                step: 1,
+                hideLimitLabels: true,
+                selectionBarGradient: {
+                    from: '#2783d8',
+                    to: '#3db879'
+                },
+                onEnd: getFromSliders,
+                id: 'vote',
             }
         };
         /**********************************/
@@ -87,6 +111,21 @@
                     console.log(home.movies);
                 });
             }
+        }
+
+        function getFromSliders(sliderId, modelValue, highValue) {
+            switch(sliderId) {
+                case "year":
+                    home.filtering.yearLower = modelValue;
+                    home.filtering.yearHigher = highValue;
+                    break;
+                case "vote":
+                    home.filtering.voteLower = modelValue;
+                    home.filtering.voteHigher = highValue;  
+                    break;
+            }
+
+            getFilteredMovies();
         }
 
         function getFilteredMovies() {

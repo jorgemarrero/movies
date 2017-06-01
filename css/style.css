@@ -441,3 +441,46 @@ li a:hover {
 		border-bottom-color: #EEEEEE;
 		background-color: #FAFAFA;
 	}
+
+
+/***** SLIDERS *****/
+.custom-slider {
+    margin: 11px 0 15px 0;
+}
+.custom-slider.rzslider .rz-bar {
+  height: 2px;
+  background-color: #eaebed;
+}
+
+.custom-slider.rzslider .rz-pointer {
+    top: -10px;
+  width: 37px;
+  height: 22px;
+  border-radius: 12px;
+}
+
+.custom-slider.rzslider .rz-pointer-min {
+    background-color: #2783d8;
+}
+
+.custom-slider.rzslider .rz-pointer-max {
+    background-color: #3db879;
+}
+
+.custom-slider.rzslider .rz-pointer:after {
+  display: none;
+}
+
+.custom-slider.rzslider .rz-bubble {
+    bottom: -9px;
+    z-index: 5;
+    font-size: 0.875em;
+    font-weight: 700;
+    color: #ffffff;
+    pointer-events: none
+}
+
+/* ----- YEARS SLIDER ----- */
+.custom-slider.years-sliders.rzslider .rz-pointer {
+    width: 50px;
+}
