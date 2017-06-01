@@ -6,15 +6,13 @@
 
 <div class="container mt-68" ng-show="home.search.query == ''">
     <div class="row">
-        <div class="row">
-            <div class="col-lg-3">
-                <!--ASIDE-->
-                <div ng-include="'/partials/aside.html'"></div>
-            </div>
-            <!--MAIN-->
-            <div class="col-lg-9">
-                <div ng-include="'/partials/main.html'" ng-init="home.getFilteredMovies()"></div>
-            </div>
+        <div class="col-lg-3">
+            <!--ASIDE-->
+            <div ng-include="'/partials/aside.html'"></div>
+        </div>
+        <!--MAIN-->
+        <div class="col-lg-9">
+            <div ng-include="'/partials/main.html'" ng-init="home.getFilteredMovies()"></div>
         </div>
     </div>
 </div>

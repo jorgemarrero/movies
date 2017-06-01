@@ -76,11 +76,17 @@
         }
 
         function getSearchMovies() {
-            MoviesFactory.getSearch(home.search.query).then(function(data){
-                home.search.totalResults = data.total;
-                home.search.movies = data.movies;
-                console.log(home.movies);
-            });
+            if (home.search.query == "") {
+                home.search.totalResults = 0;
+                home.search.movies = [];
+            }
+            else {
+                MoviesFactory.getSearch(home.search.query).then(function(data){
+                    home.search.totalResults = data.total;
+                    home.search.movies = data.movies;
+                    console.log(home.movies);
+                });
+            }
         }
 
         function getFilteredMovies() {
