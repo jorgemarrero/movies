@@ -3,7 +3,7 @@
 <!--NAV-->
 <div ng-include="'/partials/nav.html'"></div>
 
-<div class="container mt-68">
+<div class="container mt-68" ng-show="home.search.query == ''">
     <main ng-init="home.getPopularMovies()">
         <div class="cabecera-contenido centrado-vertical elementos-espaciados">
             <span>
@@ -33,3 +33,5 @@
         </div> 
     </main>
 </div>
+
+<div ng-include="'/partials/search.html'" ng-show="home.search.query != ''"></div>

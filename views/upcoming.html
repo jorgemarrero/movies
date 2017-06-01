@@ -3,7 +3,7 @@
 <!--NAV-->
 <div ng-include="'/partials/nav.html'"></div>
 
-<div class="container mt-68">
+<div class="container mt-68" ng-show="home.search.query == ''">
     <div class="row">
         <div class="row">
             <main ng-init="home.getUpcomingMovies()">
@@ -37,3 +37,5 @@
         </div>
     </div>
 </div>
+
+<div ng-include="'/partials/search.html'" ng-show="home.search.query != ''"></div>
