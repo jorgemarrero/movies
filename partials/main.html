@@ -1,32 +1,28 @@
 <main>
-    <div class="col-lg-9">
-        <div class="cabecera-contenido centrado-vertical elementos-espaciados">
-            <span>
-                <span class="negrita negro-claro">{{home.totalResults}}</span>&nbsp;películas encontradas
-            </span>
+    <div class="cabecera-contenido centrado-vertical elementos-espaciados">
+        <span>
+            <span class="negrita negro-claro">{{home.totalResults}}</span>&nbsp;películas encontradas
+        </span>
 
-            <a href="">
-                <span id="enlace-ordenar">Ordenar</span> <img src="img/arrow-down.png" alt="Flecha para ordenar películas">
-            </a>
-
-        </div>
-        <div class="row">
-            <div class="col-lg-4" ng-repeat="movie in home.movies | filter:search track by movie.id">
-                <div class="pelicula-poster">
-                    <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
-                    <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
-                        <div class="pelicula-sombra">
-                        </div>
-                        <div class="pelicula-rating centrado-vertical">
-                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{movie.vote_average}}</span>
-                            <span><img src="img/icono-tomate.png" alt="Icono de un tomate">-</span>
-                            <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">-</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <a href="">
+            <span id="enlace-ordenar">Ordenar</span> <img src="img/arrow-down.png" alt="Flecha para ordenar películas">
+        </a>
 
     </div>
-
+    <div class="row">
+        <div class="col-lg-4" ng-repeat="movie in home.movies | filter:search track by movie.id">
+            <div class="pelicula-poster">
+                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
+                <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
+                    <div class="pelicula-sombra">
+                    </div>
+                    <div class="pelicula-rating centrado-vertical">
+                        <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{movie.vote_average}}</span>
+                        <span><img src="img/icono-tomate.png" alt="Icono de un tomate">-</span>
+                        <span><img src="img/icono-palomitas.png" alt="Icono de un paquete de palomitas">-</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> 
 </main>

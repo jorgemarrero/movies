@@ -37,6 +37,8 @@
         
         ////////////////
         home.getFilteredMovies = getFilteredMovies;
+        home.getPopularMovies = getPopularMovies;
+        home.getUpcomingMovies = getUpcomingMovies;
         home.filterByGenres = filterByGenres;
         home.isGenreSelected = isGenreSelected;
         home.openNav = openNav;
@@ -47,11 +49,10 @@
         ////////////////
 
         function activate() {
-            getFilteredMovies();
         }
 
         ////////////////
-
+       
         function getPopularMovies() {
             MoviesFactory.getPopular().then(function(data){
                 home.totalResults = data.total;
@@ -59,7 +60,15 @@
                 console.log(home.movies);
             });
         }
-        
+
+        function getUpcomingMovies() {
+            MoviesFactory.getUpcoming().then(function(data){
+                home.totalResults = data.total;
+                home.movies = data.movies;
+                console.log(home.movies);
+            });
+        }
+
         function getFilteredMovies() {
             MoviesFactory.getFiltered(home.filtering).then(function(data){
                 home.totalResults = data.total;

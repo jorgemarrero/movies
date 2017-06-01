@@ -12,13 +12,13 @@
                 controller: 'HomeController as home',
                 templateUrl: '/views/home.html'
             })
-            .when("/populares", {
-                controller: 'PopularController',
-                templateUrl: '/views/home.html'
+            .when("/popular", {
+                controller: 'HomeController as home',
+                templateUrl: '/views/popular.html'
             })
-            .when("/proximamente", {
-                controller: 'ProximamenteController',
-                templateUrl: '/views/home.html'
+            .when("/upcoming", {
+                controller: 'HomeController as home',
+                templateUrl: '/views/upcoming.html'
             })
 
     }
