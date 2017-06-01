@@ -11,7 +11,7 @@
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">1979 - 2015</span></span>
+                    <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">{{home.filtering.yearLower}} - {{home.filtering.yearHigher}}</span></span>
                 </p>
                 <rzslider class="custom-slider years-sliders"
                           rz-slider-model="home.yearSlider.minValue"
@@ -23,7 +23,7 @@
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Valoración</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 10</span></span>
+                    <span class="titulo-selectores">Valoración</span><span class="borde-seleccion"><span class="texto-seleccion">{{home.filtering.voteLower}} - {{home.filtering.voteHigher}}</span></span>
                 </p>
                 <rzslider class="custom-slider"
                           rz-slider-model="home.voteSlider.minValue"
@@ -31,22 +31,6 @@
                           rz-slider-options="home.voteSlider.options">
                 </rzslider>
             </div>
-
-            <div class="bloque-selectores">
-                <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Rotten Tomatoes - CS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
-                </p>
-
-            </div>
-
-<!--            <div class="bloque-selectores">
-                <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Rotten Tomatoes - AS</span><span class="borde-seleccion"><span class="texto-seleccion">0 - 50</span></span>
-                </p>
-                <img src="img/captura-selectores.PNG" alt="Captura de selectores deslizantes">
-                <input type="number" name="rtas_lower" ng-model="home.filtering.rtasLower" min="0" max="100" ng-change="home.getFilteredMovies()">
-                <input type="number" name="rtas_higher" ng-model="home.filtering.rtasHigher" min="0" max="100" ng-change="home.getFilteredMovies()">
-            </div>-->
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
