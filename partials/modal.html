@@ -38,8 +38,13 @@
                                 <div class="trailer">
                                     <div class="titulo-dentro-ficha negro-claro pb-10">Trailer</div>
                                     <div class="contenedor-video">
-
-                                        <iframe src="https://www.youtube.com/embed/sMKoNBRZM1M" frameborder="0" allowfullscreen class="video"></iframe>
+                                        <!--<iframe ng-src="https://www.youtube.com/embed/sMKoNBRZM1M" frameborder="0" allowfullscreen class="video"></iframe>-->
+                                        <ng-youtube-embed 
+                                            class="video"
+                                            video="home.movieSelected.video" 
+                                            color="white"
+                                            disablekb="true">
+                                        </ng-youtube-embed>
                                     </div>
                                 </div>
                             </div>

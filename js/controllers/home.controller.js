@@ -10,7 +10,7 @@
         var home = this;
         home.movies = [];
         home.movieSelected = {
-            movie: "2LIQ2-PZBC8"
+            video: undefined
         };
         home.filtering = {
             yearLower: 1900,
@@ -128,7 +128,6 @@
             MoviesFactory.getMovie(movie).then(function(data){
                 home.movieSelected = data;
                 console.log(home.movieSelected);
-                
             });
         }
     }

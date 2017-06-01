@@ -367,7 +367,7 @@ li a:hover {
     height: 0;
     padding-bottom: 56.25%;
 }
-.video {
+.contenedor-video iframe {
     position: absolute;
     top: 0;
     left: 0;

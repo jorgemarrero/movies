@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('pelisEOI', ['ngRoute']).config(config);
+    angular.module('pelisEOI', ['ngRoute', 'ngYoutubeEmbed']).config(config);
 
     config.$inject=['$routeProvider','$locationProvider'];
 
