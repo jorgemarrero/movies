@@ -42,6 +42,8 @@
                 },
                 onEnd: getFromSliders,
                 id: 'year',
+                noSwitching: true,
+                hidePointerLabels: true
             }
         };
 
@@ -59,6 +61,8 @@
                 },
                 onEnd: getFromSliders,
                 id: 'vote',
+                noSwitching: true,
+                hidePointerLabels: true
             }
         };
         /**********************************/

@@ -56,7 +56,7 @@
                         <p class="pb-10">Películas similares</p>
                         <div class="row peliculas-similares">
                             <div class="col-lg-3" ng-repeat="similar in home.movieSelected.similars track by similar.id">
-                                <a href="#">
+                                <a href="#" ng-click="home.openNav(similar)">
                                     <img src="https://image.tmdb.org/t/p/w342{{similar.poster_path}}" alt="Miniatura de la película">
                                     <p class="titulo-dentro-ficha negro-claro">{{similar.title}}</p>
                                 </a>

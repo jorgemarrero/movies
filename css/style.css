@@ -95,14 +95,14 @@ a:hover {
     margin-top: -3px;
 }
 .borde-seleccion {
-    border: 2px solid #e9ecee;
+    border: 2px solid #8e9297;
     border-radius: 10px;
     height: 19px;
     padding-right: 9px;
     padding-left: 9px;
 }
 .texto-seleccion {
-    color: #ebeef0;
+    color: #8e9297;
     font-size: 0.875em;
     font-weight: 700;
     position: relative;
@@ -458,10 +458,10 @@ li a:hover {
 }
 
 .custom-slider.rzslider .rz-pointer {
-    top: -10px;
-  width: 37px;
-  height: 22px;
-  border-radius: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    top: -7px;
 }
 
 .custom-slider.rzslider .rz-pointer-min {
@@ -482,10 +482,5 @@ li a:hover {
     font-size: 0.875em;
     font-weight: 700;
     color: #ffffff;
-    pointer-events: none
-}
-
-/* ----- YEARS SLIDER ----- */
-.custom-slider.years-sliders.rzslider .rz-pointer {
-    width: 50px;
+    pointer-events: none;
 }

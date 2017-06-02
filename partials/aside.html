@@ -11,7 +11,7 @@
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">{{home.filtering.yearLower}} - {{home.filtering.yearHigher}}</span></span>
+                    <span class="titulo-selectores">Año</span><span class="borde-seleccion"><span class="texto-seleccion">{{home.yearSlider.minValue}} - {{home.yearSlider.maxValue}}</span></span>
                 </p>
                 <rzslider class="custom-slider years-sliders"
                           rz-slider-model="home.yearSlider.minValue"
@@ -23,7 +23,7 @@
 
             <div class="bloque-selectores">
                 <p class="cabecera-selectores">
-                    <span class="titulo-selectores">Valoración</span><span class="borde-seleccion"><span class="texto-seleccion">{{home.filtering.voteLower}} - {{home.filtering.voteHigher}}</span></span>
+                    <span class="titulo-selectores">Valoración</span><span class="borde-seleccion"><span class="texto-seleccion">{{home.voteSlider.minValue}} - {{home.voteSlider.maxValue}}</span></span>
                 </p>
                 <rzslider class="custom-slider"
                           rz-slider-model="home.voteSlider.minValue"
