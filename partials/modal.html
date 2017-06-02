@@ -2,7 +2,10 @@
 <div class="modal right fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="container">
+            <div ng-show="home.loadingModal" class="loader-container">
+                <img src="img/loader.gif" alt="Loader icon"> 
+            </div>
+            <div ng-show="!home.loadingModal" class="container">
                 <div class="row">
                     <div class="overlay-content">
                         <div class="row">
@@ -38,7 +41,6 @@
                                 <div class="trailer">
                                     <div class="titulo-dentro-ficha negro-claro pb-10">Trailer</div>
                                     <div class="contenedor-video">
-                                        <!--<iframe ng-src="https://www.youtube.com/embed/sMKoNBRZM1M" frameborder="0" allowfullscreen class="video"></iframe>-->
                                         <ng-youtube-embed 
                                             class="video"
                                             video="home.movieSelected.video" 
@@ -63,6 +65,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div><!-- modal-content -->

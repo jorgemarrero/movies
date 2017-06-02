@@ -169,8 +169,10 @@
 
         function openNav(movie) {
             console.log(movie);
+            home.loadingModal = true;
             MoviesFactory.getMovie(movie).then(function(data){
                 home.movieSelected = data;
+                home.loadingModal = false;
                 console.log(home.movieSelected);
             });
         }

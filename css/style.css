@@ -484,3 +484,10 @@ li a:hover {
     color: #ffffff;
     pointer-events: none;
 }
+
+.loader-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
