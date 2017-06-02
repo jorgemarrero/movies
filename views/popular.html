@@ -7,13 +7,8 @@
     <main ng-init="home.getPopularMovies()">
         <div class="cabecera-contenido centrado-vertical elementos-espaciados">
             <span>
-                <span class="negrita negro-claro">{{home.totalResults}}</span>&nbsp;películas encontradas
+                Las<span class="negrita negro-claro"> 20 películas</span> del momento, ¡No seas el último en verlas!
             </span>
-
-            <a href="">
-                <span id="enlace-ordenar">Ordenar</span> <img src="img/arrow-down.png" alt="Flecha para ordenar películas">
-            </a>
-
         </div>
         <div class="row">
             <div class="col-lg-3" ng-repeat="movie in home.movies | filter:search track by movie.id">
