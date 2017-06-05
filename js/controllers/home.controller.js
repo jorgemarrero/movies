@@ -17,15 +17,18 @@
             yearHigher: 2017,
             voteLower: 0,
             voteHigher: 10,
-            genres: []
+            genres: [],
+            page: 1
         }
 
         home.search = [];
         home.search.query = "";
-        home.search.totalResults = 0;
+        home.search.results = {
+            movies: 0,
+            pages: 0
+        };
+        home.search.page = 1;
         home.search.movies = [];
-
-        home.totalResults = 0;
 
         /**********************************/
         home.yearSlider = {
@@ -70,9 +73,11 @@
         
         ////////////////
         home.getFilteredMovies = getFilteredMovies;
+        home.getMoreFiltered = getMoreFiltered;
         home.getPopularMovies = getPopularMovies;
         home.getUpcomingMovies = getUpcomingMovies;
         home.getSearchMovies = getSearchMovies;
+        home.getMoreSearch = getMoreSearch;
         home.filterByGenres = filterByGenres;
         home.isGenreSelected = isGenreSelected;
         home.openNav = openNav;
@@ -105,17 +110,32 @@
         }
 
         function getSearchMovies() {
+            home.search.movies = [];
             if (home.search.query == "") {
-                home.search.totalResults = 0;
-                home.search.movies = [];
+                home.search.results = {
+                    movies: 0,
+                    pages: 0
+                };
             }
             else {
                 MoviesFactory.getSearch(home.search.query).then(function(data){
-                    home.search.totalResults = data.total;
+                    home.search.results = data.results;
                     home.search.movies = data.movies;
                     console.log(home.movies);
                 });
             }
+        }
+
+        function getMoreSearch() {
+            ++ home.search.page;
+            console.log(home.search);
+            MoviesFactory.getSearch(home.search.query, home.search.page).then(function(data){
+                data.movies.forEach(function(element) {
+                    home.search.movies.push(element);
+                });
+            });
+
+            console.log(home.search.movies);    
         }
 
         function getFromSliders(sliderId, modelValue, highValue) {
@@ -135,10 +155,22 @@
 
         function getFilteredMovies() {
             MoviesFactory.getFiltered(home.filtering).then(function(data){
-                home.totalResults = data.total;
+                home.results = data.results;
                 home.movies = data.movies;
                 console.log(home.movies);        
             });
+        }
+
+        function getMoreFiltered() {
+            ++ home.filtering.page;
+            console.log(home.filtering);
+            MoviesFactory.getFiltered(home.filtering).then(function(data){
+                data.movies.forEach(function(element) {
+                    home.movies.push(element);
+                });
+            });
+
+            console.log(home.movies);        
         }
 
         function filterByGenres(genreId) {
@@ -183,7 +215,8 @@
                 yearHigher: 2017,
                 voteLower: 0,
                 voteHigher: 10,
-                genres: []
+                genres: [],
+                page: 1
             }  
             home.yearSlider.minValue = home.filtering.yearLower;
             home.yearSlider.maxValue = home.filtering.yearHigher;

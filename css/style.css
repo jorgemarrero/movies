@@ -491,3 +491,8 @@ li a:hover {
     align-items: center;
     justify-content: center;
 }
+
+
+.stylish-input-group .glyphicon {
+    color: #FFCCBC;
+}

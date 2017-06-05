@@ -4,7 +4,7 @@
 <!--NAV-->
 <div ng-include="'/partials/nav.html'"></div>
 
-<div class="container mt-68" ng-show="home.search.query == ''">
+<div class="container mt-68" ng-if="home.search.query == ''">
     <div class="row">
         <div class="col-lg-3">
             <!--ASIDE-->
@@ -17,5 +17,5 @@
     </div>
 </div>
 
-<div ng-include="'/partials/search.html'" ng-show="home.search.query != ''"></div>
+<div ng-include="'/partials/search.html'" ng-if="home.search.query != ''"></div>
 

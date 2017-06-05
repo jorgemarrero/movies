@@ -1,10 +1,10 @@
 <div class="container mt-68">
     <div class="cabecera-contenido centrado-vertical elementos-espaciados">
         <span>
-            <span class="negrita negro-claro">{{home.search.totalResults}}</span>&nbsp;películas encontradas para "{{home.search.query}}"
+            <span class="negrita negro-claro">{{home.search.results.movies}}</span>&nbsp;películas encontradas para "{{home.search.query}}"
         </span>
     </div>
-    <div class="row">
+    <div class="row" infinite-scroll="home.getMoreSearch()">
         <div class="col-lg-3" ng-repeat="movie in home.search.movies | filter:search track by movie.id">
             <div class="pelicula-poster">
                 <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">

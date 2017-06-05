@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('pelisEOI', ['ngRoute', 'ngYoutubeEmbed', 'rzModule']).config(config);
+    angular.module('pelisEOI', ['ngRoute', 'ngYoutubeEmbed', 'rzModule', 'infinite-scroll']).config(config);
 
     config.$inject=['$routeProvider','$locationProvider'];
 

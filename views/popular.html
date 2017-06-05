@@ -3,7 +3,7 @@
 <!--NAV-->
 <div ng-include="'/partials/nav.html'"></div>
 
-<div class="container mt-68" ng-show="home.search.query == ''">
+<div class="container mt-68" ng-if="home.search.query == ''">
     <main ng-init="home.getPopularMovies()">
         <div class="cabecera-contenido centrado-vertical elementos-espaciados">
             <span>
@@ -29,4 +29,4 @@
     </main>
 </div>
 
-<div ng-include="'/partials/search.html'" ng-show="home.search.query != ''"></div>
+<div ng-include="'/partials/search.html'" ng-if="home.search.query != ''"></div>

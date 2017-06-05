@@ -50,15 +50,22 @@
             });
         }
 
-        function getSearch(toSearch) {
+        function getSearch(toSearch, page) {
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=es-ES&query=" + toSearch + "&include_adult=false&region=ES"
+                url : "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY 
+                + "&language=es-ES&query=" + toSearch
+                + "&include_adult=false" 
+                + "&page=" + page
+                + "&region=ES" 
             })
             .then (function(data) {
                 console.log(data);
                 var toReturn = [];
-                toReturn.total = data.data.total_results;
+                toReturn.results = {
+                    movies: data.data.total_results,
+                    pages: data.data.pages,
+                }
                 toReturn.movies = data.data.results;
                 return toReturn;
             });
@@ -76,7 +83,7 @@
                         + "&sort_by=popularity.desc"
                         + "&include_adult=false"
                         + "&include_video=false"
-                        + "&page=1"
+                        + "&page=" + filter.page 
                         + "&primary_release_date.gte=" + filter.yearLower
                         + "&primary_release_date.lte=" + filter.yearHigher
                         + "&vote_count.gte=" + minVotesToShow
@@ -85,8 +92,12 @@
                         + "&with_genres=" + filter.genres.join()
             })
             .then (function(data) {
+                console.log(data);
                 var toReturn = [];
-                toReturn.total = data.data.total_results;
+                toReturn.results = {
+                    movies: data.data.total_results,
+                    pages: data.data.pages,
+                }
                 toReturn.movies = data.data.results;
                 return toReturn;
             });        
