@@ -141,6 +141,7 @@
             }
             toReturn.imdb_id = data.data.imdb_id;
 
+
             return $http({
                 method : "GET",
                 url : "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=" + API_KEY

@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <base href="/">
     <title>Pelis EOI</title>
+    <script src='bundle.js'></script>
 
     <link rel="stylesheet" href="./libs/angular-csp.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.2.2/rzslider.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800">
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.css" />  
 </head>
 
 <body ng-cloak>
-
+    
     <div ng-view></div>
 
     <script src="./libs/angular.js"></script>
@@ -26,15 +30,31 @@
     <script src="./js/app.js"></script>
     <!-- Services -->
     <script src="./js/factories/movies.factory.js"></script>
+    <script src="./js/factories/firebase.factory.js"></script>
+    <script src="./js/factories/auth.factory.js"></script>
     <!-- Components -->
-        <script src="./libs/ng-infinite-scroll.js"></script>
+    <script src="./libs/ng-infinite-scroll.js"></script>
     <!-- Controllers -->
     <script src="./js/controllers/home.controller.js"></script>
-    <script src="./js/controllers/popular.controller.js"></script>
 
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-    <script src="js/firabase/config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCNbXaJxMiyCeYe7hMEizEDbV9H6NvAi40",
+        authDomain: "movie-directory-917db.firebaseapp.com",
+        databaseURL: "https://movie-directory-917db.firebaseio.com",
+        projectId: "movie-directory-917db",
+        storageBucket: "movie-directory-917db.appspot.com",
+        messagingSenderId: "556529699163"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
        
     <script>
         function openNav() {

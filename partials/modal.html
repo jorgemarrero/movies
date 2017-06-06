@@ -52,7 +52,11 @@
                             </div>
                         </div>
                         
-                        <p class="subs-disponibles">Subs: <a href="#">en</a> <a href="#">es</a> <a href="#">de</a></p>
+                        <p class="subs-disponibles">Subs:
+                            <a href="{{home.movieSelected.subtitles.en}}">en</a>{{home.movieSelected.subtitles.es}}
+                            <a href="{{home.movieSelected.subtitles.es}}">es</a>
+                            <a href="{{home.movieSelected.subtitles.de}}">de</a>
+                        </p>
                         <hr>
 
                         <p class="pb-10">Películas similares</p>
