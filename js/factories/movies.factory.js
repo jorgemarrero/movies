@@ -107,6 +107,7 @@
             console.log(movie);
 
             var toReturn = {
+                movie: movie,
                 title: movie.title,
                 year: movie.release_date.slice(0, 4),
                 poster_path: movie.poster_path,

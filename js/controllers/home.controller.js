@@ -5,9 +5,9 @@
         .module('pelisEOI')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'MoviesFactory', '$firebaseAuth', '$firebaseObject'];
+    HomeController.$inject = ['$scope', 'MoviesFactory', 'FirebaseFactory'];
 
-    function HomeController($scope, MoviesFactory, $firebaseAuth, $firebaseObject) {
+    function HomeController($scope, MoviesFactory, FirebaseFactory) {
         var home = this;
         home.movies = [];
         home.movieSelected = {
@@ -95,60 +95,30 @@
         ////////////////
 
         function activate() {
-            home.auth = $firebaseAuth();
-            console.log(home.auth);
-            
-            // any time auth state changes, add the user data to scope
-            home.auth.$onAuthStateChanged(function(firebaseUser) {
-                home.firebaseUser = firebaseUser;
-                console.log(firebaseUser);
-            });      
-
-            firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                console.log("logeado");
-            } else {
-                console.log("no logeado");
-            }
+            firebase.auth().onAuthStateChanged(function(firebaseUser) {
+                if (firebaseUser) {
+                    home.firebaseUser = firebaseUser;
+                    console.log("logeado");
+                } else {
+                    console.log("no logeado");
+                }
             }, function(error) {
-            console.log(error);
-            });
-
+                console.log(error);
+            });            
         }
 
-        function signIn() {
-            var uiConfig = {
-                signInSuccessUrl: "http://127.0.0.1:8080",
-                signInFlow: "popup",
-                signInOptions: [
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                ],
-                credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-                // Terms of service url.
-                tosUrl: 'https://www.google.com'
-            };
-            console.log("QUÉ PASA AQUÍ")
-            // Initialize the FirebaseUI Widget using Firebase.
-            var ui = new firebaseui.auth.AuthUI(firebase.auth());
-            // The start method will wait until the DOM is loaded.
-            ui.start('#firebaseui-auth-container', uiConfig);
-            console.log("VIENE");
+        /* FIREBASE */
+        function signIn(movie) {
+            FirebaseFactory.signIn(movie);
         }
 
         function addFav(movie) {
-            var id = movie.imdb_id
-            firebase.database().ref('favs/' + home.firebaseUser.uid).update({
-                [movie.imdb_id]: movie
-            });
+            FirebaseFactory.addFav(movie);
         }
 
         function toWatch(movie) {
-            var id = movie.imdb_id
-            firebase.database().ref('towatch/' + home.firebaseUser.uid).update({
-                [movie.imdb_id]: movie
-            });
+            FirebaseFactory.toWatch(movie);
         }
-
         ////////////////
 
         function getPopularMovies() {
@@ -175,17 +145,16 @@
                 home.movies.favs = $.map(snapshot.val(), function(value, index) {
                     return [value];
                 });
-
+                $scope.$apply();
                 console.log(home.movies.favs);
             });
-            
             firebase.database().ref('/towatch/' + userId).once('value').then(function(snapshot) {
                 home.movies.towatch = $.map(snapshot.val(), function(value, index) {
                     return [value];
                 });
-
+                $scope.$apply();
                 console.log(home.movies.towatch);
-            });
+            });        
         }
 
         function getSearchMovies() {
@@ -287,7 +256,7 @@
                 
                 console.log(home.movieSelected);
 
-                home.movieSelected.subtitles = getSubtitles(home.movieSelected.imdb_id).then(function (subs) {
+                getSubtitles(home.movieSelected.imdb_id).then(function (subs) {
                     console.log(subs);
                     var toReturn;
                     toReturn = {
@@ -295,8 +264,7 @@
                         es: subs.es.url,
                         de: subs.de.url
                     }
-                    console.log(toReturn);
-                    return toReturn;
+                    $scope.$apply(() =>  home.movieSelected.subtitles = toReturn);
                 });;
 
                 console.log(home.movieSelected);

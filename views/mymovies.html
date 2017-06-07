@@ -7,11 +7,11 @@
     <main ng-init="home.getMyMovies()">
         <div class="cabecera-contenido centrado-vertical elementos-espaciados">
             <span>
-                Tus películas favoritas <a href="#" ng-click="console.log(home.movies)">check</a>
+                Tus películas <span class="negrita negro-claro">favoritas</span> ¡Recomiéndaselas a tus amigos!
             </span>
         </div>
         <div class="row">
-            <div class="col-lg-3" ng-repeat="movie in home.movies.favs | filter:search track by movie.imdb_id">
+            <div class="col-lg-3" ng-repeat="movie in home.movies.favs | filter:search track by movie.id">
                 <div class="pelicula-poster">
                     <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
                     <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
@@ -29,11 +29,11 @@
 
         <div class="cabecera-contenido centrado-vertical elementos-espaciados">
             <span>
-                Tus películas pendientes <a href="#" ng-click="console.log(home.movies)">check</a>
+                Tus películas <span class="negrita negro-claro">pendientes</span> ¡Encuentra un hueco para verlas!
             </span>
         </div>
         <div class="row">
-            <div class="col-lg-3" ng-repeat="movie in home.movies.towatch | filter:search track by movie.imdb_id">
+            <div class="col-lg-3" ng-repeat="movie in home.movies.towatch | filter:search track by movie.id">
                 <div class="pelicula-poster">
                     <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
                     <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
