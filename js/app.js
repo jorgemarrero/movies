@@ -14,15 +14,15 @@
             })
             .when("https://jorgemarrero.github.io/movies/popular", {
                 controller: 'HomeController as home',
-                templateUrl: 'https://jorgemarrero.github.io/movies/views/popular.html'
+                templateUrl: 'views/popular.html'
             })
             .when("https://jorgemarrero.github.io/movies/upcoming", {
                 controller: 'HomeController as home',
-                templateUrl: 'https://jorgemarrero.github.io/movies/views/upcoming.html'
+                templateUrl: 'views/upcoming.html'
             })
             .when("https://jorgemarrero.github.io/movies/mymovies", {
                 controller: 'HomeController as home',
-                templateUrl: 'https://jorgemarrero.github.io/movies/views/mymovies.html'
+                templateUrl: 'views/mymovies.html'
             })
     }
 })();
