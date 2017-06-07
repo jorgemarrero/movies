@@ -1,0 +1,27 @@
+<main>
+    <div class="cabecera-contenido centrado-vertical elementos-espaciados">
+        <span>
+            <span class="negrita negro-claro">{{home.results.movies}}</span>&nbsp;películas encontradas
+        </span>
+
+        <a href="">
+            <span id="enlace-ordenar">Ordenar</span> <img src="img/arrow-down.png" alt="Flecha para ordenar películas">
+        </a>
+
+    </div>
+    <div class="row" infinite-scroll="home.getMoreFiltered()">
+        <div class="col-lg-4" ng-repeat="movie in home.movies track by $index">
+            <div class="pelicula-poster">
+                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
+                <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
+                    <div class="pelicula-sombra">
+                    </div>
+                    <div class="pelicula-rating centrado-vertical">
+                        <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{movie.vote_average}}</span>
+                        <span>VER MÁS</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> 
+</main>

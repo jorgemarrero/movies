@@ -1,0 +1,31 @@
+<!--MODAL-->
+<div ng-include="'/partials/modal.html'"></div>
+<!--NAV-->
+<div ng-include="'/partials/nav.html'"></div>
+
+<div class="container mt-68" ng-if="home.search.query == ''">
+    <main ng-init="home.getPopularMovies()">
+        <div class="cabecera-contenido centrado-vertical elementos-espaciados">
+            <span>
+                Las<span class="negrita negro-claro"> 20 películas</span> del momento, ¡No seas el último en verlas!
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-lg-3" ng-repeat="movie in home.movies | filter:search track by movie.id">
+                <div class="pelicula-poster">
+                    <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.original_title}}">
+                    <a href="#" data-toggle="modal" data-target="#myModal" ng-click="home.openNav(movie)">
+                        <div class="pelicula-sombra">
+                        </div>
+                        <div class="pelicula-rating centrado-vertical">
+                            <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{movie.vote_average}}</span>
+                            <span>VER MÁS</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+    </main>
+</div>
+
+<div ng-include="'/partials/search.html'" ng-if="home.search.query != ''"></div>

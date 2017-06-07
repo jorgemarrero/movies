@@ -1,0 +1,22 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgemarrero/movies-directory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorgemarrero/movies-directory/issues"
+  },
+  "homepage": "https://github.com/jorgemarrero/movies-directory#readme",
+  "dependencies": {
+    "opensubtitles-api": "^4.0.0-rc2"
+  }
+}

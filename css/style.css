@@ -1,3 +1,5 @@
+:focus {outline:none;}
+
 body {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
@@ -5,7 +7,7 @@ body {
 }
 
 nav {
-    z-index: 2;
+    z-index: 10;
     background-color: #1b2126;
     height: 68px;
     position: fixed; 
@@ -93,18 +95,18 @@ a:hover {
     margin-top: -3px;
 }
 .borde-seleccion {
-    border: 2px solid #e9ecee;
+    border: 1px solid #8e9297;
     border-radius: 10px;
     height: 19px;
     padding-right: 9px;
     padding-left: 9px;
 }
 .texto-seleccion {
-    color: #ebeef0;
+    color: #8e9297;
     font-size: 0.875em;
-    font-weight: 700;
+    font-weight: 600;
     position: relative;
-    top: -4px;
+    top: -3px;
 }
 
 .bloque-generos {
@@ -125,7 +127,7 @@ a:hover {
     margin-bottom: 9px;
     cursor: pointer;
 }
-.btn-generos:focus, .btn-generos:active:focus, .btn-generos.active:focus {
+.btn-generos-selected {
     outline: 0 none;
     border-color: #2883d8;
     color: #2883d8;
@@ -270,7 +272,7 @@ li a:hover {
 
 
 
-/* MODAL */
+/* MODAL 
 .overlay {
     height: 100%;
     width: 100%;
@@ -282,7 +284,7 @@ li a:hover {
     background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
-}
+}*/
 
 .overlay-content-space {
     background-color: white;
@@ -295,18 +297,18 @@ li a:hover {
     padding: 20px;
 }
 
-.overlay .closebtn {
+.overlay-content .closebtn {
     position: absolute;
     top: 25px;
     right: 45px;
 }
 
-.overlay h3 {
+.overlay-content h3 {
     font-size: 2.125em;
     font-weight: 300;
     display: inline-block;
 }
-.overlay hr {
+.overlay-content hr {
     color: #e9ecee;
 }
 
@@ -324,12 +326,20 @@ li a:hover {
     height: 660px;
     width: 440px;
 }
+.ficha-pelicula-poster {
+    width: 440px;
+    height: 660px;
+}
 .ficha-pelicula > .col-lg-7 {
     height: 100%;
     padding-left: 0px;
 }
 .titulo-dentro-ficha {
     font-size: 1.55em;
+    font-weight: 300;
+}
+.titulo-dentro-ficha a {
+    font-size: 0.7em;
     font-weight: 300;
 }
 .ficha-pelicula .pelicula-rating {
@@ -339,12 +349,14 @@ li a:hover {
     padding-left: 32px;
 }
 .ficha-pelicula p {
-    padding-top: 30px;
+    margin-top: 30px;
     color: #8e9297;
+    max-height: 110px;
+    overflow: auto;
 }
 .ficha-pelicula .btn-generos {
     background-color: #e9ecee;
-    width: 71px;
+    width: initial;
     height: 28px;
     color: #5c6269;
     font-size: 0.875em;
@@ -364,7 +376,7 @@ li a:hover {
     height: 0;
     padding-bottom: 56.25%;
 }
-.video {
+.contenedor-video iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -389,4 +401,102 @@ li a:hover {
     font-weight: 400;
     color: #8e9297;
     text-decoration: underline;
+}
+
+
+/*******************************
+* MODAL 
+*******************************/
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 1200px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+	
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+        
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #FAFAFA;
+	}
+
+
+/***** SLIDERS *****/
+.custom-slider {
+    margin: 11px 0 15px 0;
+}
+.custom-slider.rzslider .rz-bar {
+  height: 2px;
+  background-color: #eaebed;
+}
+
+.custom-slider.rzslider .rz-pointer {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    top: -7px;
+}
+
+.custom-slider.rzslider .rz-pointer-min {
+    background-color: #2783d8;
+}
+
+.custom-slider.rzslider .rz-pointer-max {
+    background-color: #3db879;
+}
+
+.custom-slider.rzslider .rz-pointer:after {
+  display: none;
+}
+
+.custom-slider.rzslider .rz-bubble {
+    bottom: -9px;
+    z-index: 5;
+    font-size: 0.875em;
+    font-weight: 700;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.loader-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.stylish-input-group .glyphicon {
+    color: #FFCCBC;
 }
