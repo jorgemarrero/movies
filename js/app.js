@@ -12,15 +12,15 @@
                 controller: 'HomeController as home',
                 templateUrl: 'https://jorgemarrero.github.io/movies/views/home.html'
             })
-            .when("/popular", {
+            .when("https://jorgemarrero.github.io/movies/popular", {
                 controller: 'HomeController as home',
                 templateUrl: 'https://jorgemarrero.github.io/movies/views/popular.html'
             })
-            .when("/upcoming", {
+            .when("https://jorgemarrero.github.io/movies/upcoming", {
                 controller: 'HomeController as home',
                 templateUrl: 'https://jorgemarrero.github.io/movies/views/upcoming.html'
             })
-            .when("/mymovies", {
+            .when("https://jorgemarrero.github.io/movies/mymovies", {
                 controller: 'HomeController as home',
                 templateUrl: 'https://jorgemarrero.github.io/movies/views/mymovies.html'
             })
