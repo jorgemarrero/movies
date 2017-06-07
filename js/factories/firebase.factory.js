@@ -25,13 +25,18 @@
         //////////////////////
 
         return {
+            getAuth: getAuth,
             signIn: signIn,
             addFav: addFav,
-            toWatch: toWatch
+            toWatch: toWatch,
+            getMyMovies: getMyMovies
         }
 
         ///////////////////////
-       
+        function getAuth() {
+            return $firebaseAuth();
+        }
+
         function signIn() {
             var uiConfig = {
                 signInSuccessUrl: "http://127.0.0.1:8080",
@@ -62,6 +67,10 @@
             firebase.database().ref('towatch/' + user.uid).update({
                 [movie.id]: movie
             });
+        }
+
+        function getMyMovies() {
+
         }
 
     }

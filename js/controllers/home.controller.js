@@ -95,13 +95,17 @@
         ////////////////
 
         function activate() {
+            home.auth = FirebaseFactory.getAuth();
+
             firebase.auth().onAuthStateChanged(function(firebaseUser) {
                 if (firebaseUser) {
                     home.firebaseUser = firebaseUser;
                     console.log("logeado");
                 } else {
+                    home.firebaseUser = null;
                     console.log("no logeado");
                 }
+                $scope.$apply();
             }, function(error) {
                 console.log(error);
             });            
@@ -119,7 +123,7 @@
         function toWatch(movie) {
             FirebaseFactory.toWatch(movie);
         }
-        ////////////////
+        /************/
 
         function getPopularMovies() {
             MoviesFactory.getPopular().then(function (data) {
