@@ -53,9 +53,10 @@
                         </div>
                         
                         <p class="subs-disponibles">Subs:
-                            <a href="{{home.movieSelected.subtitles.en}}">en</a>
-                            <a href="{{home.movieSelected.subtitles.es}}">es</a>
-                            <a href="{{home.movieSelected.subtitles.de}}">de</a>
+                            <a ng-show="home.movieSelected.subtitles.en" href="{{home.movieSelected.subtitles.en}}">en</a>
+                            <a ng-show="home.movieSelected.subtitles.es" href="{{home.movieSelected.subtitles.es}}">es</a>
+                            <a ng-show="home.movieSelected.subtitles.de" href="{{home.movieSelected.subtitles.de}}">de</a>
+                            <span ng-hide="home.movieSelected.subtitles.en || home.movieSelected.subtitles.es || home.movieSelected.subtitles.de">No disponibles</span>
                         </p>
                         <hr>
 

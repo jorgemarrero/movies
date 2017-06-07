@@ -262,12 +262,11 @@
 
                 getSubtitles(home.movieSelected.imdb_id).then(function (subs) {
                     console.log(subs);
-                    var toReturn;
-                    toReturn = {
-                        en: subs.en.url,
-                        es: subs.es.url,
-                        de: subs.de.url
-                    }
+                    var toReturn = {};
+                    if(subs.en.url) toReturn.en = subs.en.url;
+                    if(subs.es.url) toReturn.es = subs.es.url;
+                    if(subs.de.url) toReturn.de = subs.de.url;
+
                     $scope.$apply(() =>  home.movieSelected.subtitles = toReturn);
                 });;
 
