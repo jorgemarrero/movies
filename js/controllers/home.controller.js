@@ -5,9 +5,9 @@
         .module('pelisEOI')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'MoviesFactory', '$firebaseAuth'];
+    HomeController.$inject = ['$scope', 'MoviesFactory', '$firebaseAuth', '$firebaseObject'];
 
-    function HomeController($scope, MoviesFactory, $firebaseAuth) {
+    function HomeController($scope, MoviesFactory, $firebaseAuth, $firebaseObject) {
         var home = this;
         home.movies = [];
         home.movieSelected = {
@@ -77,6 +77,7 @@
         home.getMoreFiltered = getMoreFiltered;
         home.getPopularMovies = getPopularMovies;
         home.getUpcomingMovies = getUpcomingMovies;
+        home.getMyMovies = getMyMovies;
         home.getSearchMovies = getSearchMovies;
         home.getMoreSearch = getMoreSearch;
         home.filterByGenres = filterByGenres;
@@ -85,6 +86,8 @@
         home.clearFilters = clearFilters;
 
         home.signIn = signIn;
+        home.addFav = addFav;
+        home.toWatch = toWatch;
 
 
         activate();
@@ -101,11 +104,6 @@
                 console.log(firebaseUser);
             });      
 
-
-
-
-
-
             firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 console.log("logeado");
@@ -121,9 +119,11 @@
         function signIn() {
             var uiConfig = {
                 signInSuccessUrl: "http://127.0.0.1:8080",
+                signInFlow: "popup",
                 signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
                 ],
+                credentialHelper: firebaseui.auth.CredentialHelper.NONE,
                 // Terms of service url.
                 tosUrl: 'https://www.google.com'
             };
@@ -133,6 +133,20 @@
             // The start method will wait until the DOM is loaded.
             ui.start('#firebaseui-auth-container', uiConfig);
             console.log("VIENE");
+        }
+
+        function addFav(movie) {
+            var id = movie.imdb_id
+            firebase.database().ref('favs/' + home.firebaseUser.uid).update({
+                [movie.imdb_id]: movie
+            });
+        }
+
+        function toWatch(movie) {
+            var id = movie.imdb_id
+            firebase.database().ref('towatch/' + home.firebaseUser.uid).update({
+                [movie.imdb_id]: movie
+            });
         }
 
         ////////////////
@@ -148,8 +162,29 @@
         function getUpcomingMovies() {
             MoviesFactory.getUpcoming().then(function (data) {
                 home.totalResults = data.total;
+                console.log(data.movies);
                 home.movies = data.movies;
                 console.log(home.movies);
+            });
+        }
+
+        function getMyMovies() {
+            var userId = firebase.auth().currentUser.uid;
+            home.movies = {};
+            firebase.database().ref('/favs/' + userId).once('value').then(function(snapshot) {
+                home.movies.favs = $.map(snapshot.val(), function(value, index) {
+                    return [value];
+                });
+
+                console.log(home.movies.favs);
+            });
+            
+            firebase.database().ref('/towatch/' + userId).once('value').then(function(snapshot) {
+                home.movies.towatch = $.map(snapshot.val(), function(value, index) {
+                    return [value];
+                });
+
+                console.log(home.movies.towatch);
             });
         }
 

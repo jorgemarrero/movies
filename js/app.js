@@ -20,5 +20,9 @@
                 controller: 'HomeController as home',
                 templateUrl: '/views/upcoming.html'
             })
+            .when("/mymovies", {
+                controller: 'HomeController as home',
+                templateUrl: '/views/mymovies.html'
+            })
     }
 })();

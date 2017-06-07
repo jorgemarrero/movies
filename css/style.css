@@ -338,6 +338,10 @@ li a:hover {
     font-size: 1.55em;
     font-weight: 300;
 }
+.titulo-dentro-ficha a {
+    font-size: 0.7em;
+    font-weight: 300;
+}
 .ficha-pelicula .pelicula-rating {
     color: #c0c4c8;
 }

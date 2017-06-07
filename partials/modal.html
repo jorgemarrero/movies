@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-lg-7">
                                 <div class="elementos-espaciados">
-                                    <span class="titulo-dentro-ficha negro-claro pb-10">Sinopsis</span>
+                                    <span class="titulo-dentro-ficha negro-claro pb-10">Sinopsis <span ng-show="home.firebaseUser"><a href="#" ng-click="home.addFav(home.movieSelected)">Añadir a favoritos</a> <a href="#" ng-click="home.toWatch(home.movieSelected)">Ver más tarde</a></span></span>
                                     <span class="compi-titulo-pelicula">{{home.movieSelected.runtime.hours}}h{{home.movieSelected.runtime.minutes}}m</span>
                                 </div>
                                 <div class="elementos-espaciados">
