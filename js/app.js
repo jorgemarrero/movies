@@ -8,9 +8,9 @@
         $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when("https://jorgemarrero.github.io/movies/", {
+            .when("/", {
                 controller: 'HomeController as home',
-                templateUrl: 'https://jorgemarrero.github.io/movies/views/home.html'
+                templateUrl: 'views/home.html'
             })
             .when("https://jorgemarrero.github.io/movies/popular", {
                 controller: 'HomeController as home',
