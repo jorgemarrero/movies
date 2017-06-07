@@ -8,21 +8,21 @@
         $locationProvider.html5Mode(true);
 
         $routeProvider
-            .when("/", {
+            .when("https://jorgemarrero.github.io/movies/", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/home.html'
+                templateUrl: 'https://jorgemarrero.github.io/movies/views/home.html'
             })
             .when("/popular", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/popular.html'
+                templateUrl: 'https://jorgemarrero.github.io/movies/views/popular.html'
             })
             .when("/upcoming", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/upcoming.html'
+                templateUrl: 'https://jorgemarrero.github.io/movies/views/upcoming.html'
             })
             .when("/mymovies", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/mymovies.html'
+                templateUrl: 'https://jorgemarrero.github.io/movies/views/mymovies.html'
             })
     }
 })();
