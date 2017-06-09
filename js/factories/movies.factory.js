@@ -169,7 +169,7 @@
 
             return $http({
                 method : "GET",
-                url : "http://www.omdbapi.com/?apikey=" + API_KEY_OMDB + "&i=" + toReturn.imdb_id
+                url : "https://www.omdbapi.com/?apikey=" + API_KEY_OMDB + "&i=" + toReturn.imdb_id
             })
             .then ((rating) => getMovieRating(rating, toReturn));
         }
