@@ -22,7 +22,9 @@
                             <div class="col-lg-7">
                                 <div class="elementos-espaciados">
                                     <span class="titulo-dentro-ficha negro-claro pb-10">Sinopsis <span ng-show="home.firebaseUser"><a href="#" ng-click="home.addFav(home.movieSelected.movie)">Añadir a favoritos</a> <a href="#" ng-click="home.toWatch(home.movieSelected.movie)">Ver más tarde</a></span></span>
-                                    <span class="compi-titulo-pelicula">{{home.movieSelected.runtime.hours}}h{{home.movieSelected.runtime.minutes}}m</span>
+                                    <span class="compi-titulo-pelicula" ng-hide="home.movieSelected.runtime.hours == '0' && home.movieSelected.runtime.minutes == '0'">
+                                        {{home.movieSelected.runtime.hours}}h{{home.movieSelected.runtime.minutes}}m
+                                    </span>
                                 </div>
                                 <div class="elementos-espaciados">
                                     <span>
@@ -32,13 +34,14 @@
                                     </span>
                                     <div class="pelicula-rating centrado-vertical">
                                         <span><img src="img/icono-favorito.png" alt="Icono de una estrella de favorito">{{home.movieSelected.votes.tmdb}}</span>
-                                        <span><img src="img/icono-tomate.png" alt="Icono de un tomate">{{home.movieSelected.votes.rt}}</span>
-                                        <span><img src="img/icono-metacritic.png" alt="Icono de metacritic">{{home.movieSelected.votes.mc}}</span>
+                                        <span ng-show="home.movieSelected.votes.rt"><img src="img/icono-tomate.png" alt="Icono de un tomate">{{home.movieSelected.votes.rt}}</span>
+                                        <span ng-show="home.movieSelected.votes.mc"><img src="img/icono-metacritic.png" alt="Icono de metacritic">{{home.movieSelected.votes.mc}}</span>
                                     </div>
                                 </div>
                                 <p>{{home.movieSelected.description}}</p>
+                                <p ng-hide="home.movieSelected.description">No disponemos de información más detallada de esta película, disculpa las molestias.</p>
 
-                                <div class="trailer">
+                                <div ng-show="home.movieSelected.video" class="trailer">
                                     <div class="titulo-dentro-ficha negro-claro pb-10">Trailer</div>
                                     <div class="contenedor-video">
                                         <ng-youtube-embed 
@@ -60,7 +63,7 @@
                         </p>
                         <hr>
 
-                        <p class="pb-10">Películas similares</p>
+                        <p class="pb-10" ng-show="home.movieSelected.similars.length > 0">Películas similares</p>
                         <div class="row peliculas-similares">
                             <div class="col-lg-3" ng-repeat="similar in home.movieSelected.similars track by similar.id">
                                 <a href="#" ng-click="home.openNav(similar)">

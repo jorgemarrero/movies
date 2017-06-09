@@ -180,6 +180,19 @@
             console.log(toReturn);
             if(rating.data.Ratings[1]) toReturn.votes.rt = rating.data.Ratings[1].Value;
             if(rating.data.Ratings[2]) toReturn.votes.mc = rating.data.Ratings[2].Value.slice(0, 2) + "%";
+
+            if(toReturn.runtime.hours == 0 && toReturn.runtime.hours == 0 && rating.data.Runtime != 'N/A') {
+                toReturn.runtime = {
+                    hours: Math.floor(rating.data.Runtime.slice(0, rating.data.Runtime.length-3) / 60),
+                    minutes: rating.data.Runtime.slice(0, rating.data.Runtime.length-3) % 60
+                }
+            }
+            console.log(rating.data.Genre);
+            if(toReturn.genres.length == 0 && rating.data.Genre != "N/A") {
+                console.log(rating.data.Genre);
+                toReturn.genres = rating.data.Genre.split(',');
+            }
+            
             return toReturn;
         }
 
