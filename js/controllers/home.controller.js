@@ -205,6 +205,8 @@
         }
 
         function getFilteredMovies() {
+            console.log("AHORA");
+            home.filtering.page = 1;
             MoviesFactory.getFiltered(home.filtering).then(function (data) {
                 home.results = data.results;
                 home.movies = data.movies;
