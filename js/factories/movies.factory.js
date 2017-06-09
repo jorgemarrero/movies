@@ -80,6 +80,7 @@
                 url : "https://api.themoviedb.org/3/discover/movie?api_key=" 
                         + API_KEY
                         + "&language=es-ES"
+                        + "&region=ES" 
                         + "&sort_by=popularity.desc"
                         + "&include_adult=false"
                         + "&include_video=false"
@@ -120,7 +121,7 @@
 
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + movie.id + "?api_key=" + API_KEY
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "?api_key=" + API_KEY + "&language=es-ES"
             })
             .then ((data) => getMovieSucess(data, toReturn, movie)); 
             /*.then (resolve(toReturn, movie) );  */
@@ -145,7 +146,7 @@
 
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=" + API_KEY
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=" + API_KEY + "&language=es-ES"
             })
             .then ((videos) => getMovieVideo(videos, toReturn, movie));
         }
@@ -154,7 +155,7 @@
             if(videos.data.results[0]) toReturn.video = videos.data.results[0].key;
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/similar?api_key=" + API_KEY
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/similar?api_key=" + API_KEY + "&language=es-ES"
             })
             .then ((simil) => getMovieSimilars(simil, toReturn));
         }
