@@ -120,7 +120,7 @@
 
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + movie.id + "?api_key=" + API_KEY
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "?api_key=" + API_KEY + "&language=es-ES"
             })
             .then ((data) => getMovieSucess(data, toReturn, movie)); 
             /*.then (resolve(toReturn, movie) );  */
@@ -145,7 +145,7 @@
 
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=" + API_KEY
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=" + API_KEY + "&language=es-ES"
             })
             .then ((videos) => getMovieVideo(videos, toReturn, movie));
         }
@@ -154,7 +154,7 @@
             if(videos.data.results[0]) toReturn.video = videos.data.results[0].key;
             return $http({
                 method : "GET",
-                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/similar?api_key=" + API_KEY
+                url : "https://api.themoviedb.org/3/movie/" + movie.id + "/similar?api_key=" + API_KEY + "&language=es-ES"
             })
             .then ((simil) => getMovieSimilars(simil, toReturn));
         }
@@ -179,6 +179,19 @@
             console.log(toReturn);
             if(rating.data.Ratings[1]) toReturn.votes.rt = rating.data.Ratings[1].Value;
             if(rating.data.Ratings[2]) toReturn.votes.mc = rating.data.Ratings[2].Value.slice(0, 2) + "%";
+
+            if(toReturn.runtime.hours == 0 && toReturn.runtime.hours == 0 && rating.data.Runtime != 'N/A') {
+                toReturn.runtime = {
+                    hours: Math.floor(rating.data.Runtime.slice(0, rating.data.Runtime.length-3) / 60),
+                    minutes: rating.data.Runtime.slice(0, rating.data.Runtime.length-3) % 60
+                }
+            }
+            console.log(rating.data.Genre);
+            if(toReturn.genres.length == 0 && rating.data.Genre != "N/A") {
+                console.log(rating.data.Genre);
+                toReturn.genres = rating.data.Genre.split(',');
+            }
+            
             return toReturn;
         }
 

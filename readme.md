@@ -1,0 +1,1 @@
+Página web que busca las películas por medio de API (TMDB y OMDB) y los subtitulos en OPENSUBTITLES.
