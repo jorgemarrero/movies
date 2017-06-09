@@ -347,6 +347,7 @@ li a:hover {
 }
 .ficha-pelicula .pelicula-rating > span > img {
     padding-left: 32px;
+    padding-bottom: 3px;
 }
 .ficha-pelicula p {
     margin-top: 30px;
