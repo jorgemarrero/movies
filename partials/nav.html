@@ -11,8 +11,8 @@
                     <li><a href="https://jorgemarrero.github.io/movies/popular" ng-click="home.search.query = ''">Populares</a></li>
                     <li><a href="https://jorgemarrero.github.io/movies/upcoming" ng-click="home.search.query = ''">Próximamamente</a></li>
                     <li ng-hide="home.firebaseUser"><a href="#" ng-click="home.signIn()" data-toggle="modal" data-target="#modalLog">¡Únete!</a></li>
-                    <li ng-show="home.firebaseUser"><a href="/mymovies" ng-click="">Mis pelis</a></li>
-                    <li ng-show="home.firebaseUser"><a href="/" ng-click="home.auth.$signOut()">Cerrar sesión</a></li>
+                    <li ng-show="home.firebaseUser"><a href="https://jorgemarrero.github.io/movies/mymovies" ng-click="">Mis pelis</a></li>
+                    <li ng-show="home.firebaseUser"><a href="https://jorgemarrero.github.io/movies/" ng-click="home.auth.$signOut()">Cerrar sesión</a></li>
 
                 </ul>
 
