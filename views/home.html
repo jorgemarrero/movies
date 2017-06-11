@@ -1,20 +1,20 @@
 <!--MODAL-->
-<div ng-include="'/partials/modal.html'"></div>
+<div ng-include="'partials/modal.html'"></div>
 
 <!--NAV-->
-<div ng-include="'/partials/nav.html'"></div>
+<div ng-include="'partials/nav.html'"></div>
 
 <div class="container mt-68" ng-if="home.search.query == ''">
     <div class="row">
         <div class="col-lg-3">
             <!--ASIDE-->
-            <div ng-include="'/partials/aside.html'"></div>
+            <div ng-include="'partials/aside.html'"></div>
         </div>
         <!--MAIN-->
         <div class="col-lg-9">
-            <div ng-include="'/partials/main.html'" ng-init="home.getFilteredMovies()"></div>
+            <div ng-include="'partials/main.html'" ng-init="home.getFilteredMovies()"></div>
         </div>
     </div>
 </div>
 
-<div ng-include="'/partials/search.html'" ng-if="home.search.query != ''"></div>
+<div ng-include="'partials/search.html'" ng-if="home.search.query != ''"></div>

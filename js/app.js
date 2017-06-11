@@ -10,19 +10,19 @@
         $routeProvider
             .when("/", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/home.html'
+                templateUrl: 'views/home.html'
             })
             .when("/popular", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/popular.html'
+                templateUrl: 'views/popular.html'
             })
             .when("/upcoming", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/upcoming.html'
+                templateUrl: 'views/upcoming.html'
             })
             .when("/mymovies", {
                 controller: 'HomeController as home',
-                templateUrl: '/views/mymovies.html'
+                templateUrl: 'views/mymovies.html'
             })
     }
 })();

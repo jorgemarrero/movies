@@ -39,7 +39,7 @@
 
         function signIn() {
             var uiConfig = {
-                signInSuccessUrl: "http://127.0.0.1:8080",
+                signInSuccessUrl: "https://jorgemarrero.github.io/movies/",
                 signInFlow: "popup",
                 signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,

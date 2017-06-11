@@ -13,6 +13,7 @@
                     <li ng-hide="home.firebaseUser"><a href="#" ng-click="home.signIn()" data-toggle="modal" data-target="#modalLog">¡Únete!</a></li>
                     <li ng-show="home.firebaseUser"><a href="/mymovies" ng-click="">Mis pelis</a></li>
                     <li ng-show="home.firebaseUser"><a href="/" ng-click="home.auth.$signOut()">Cerrar sesión</a></li>
+
                 </ul>
 
                 <div id="buscador" class="col-lg-4">
