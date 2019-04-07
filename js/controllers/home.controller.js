@@ -15,7 +15,7 @@
         };
         home.filtering = {
             yearLower: 1900,
-            yearHigher: 2017,
+            yearHigher: new Date().getFullYear(),
             voteLower: 0,
             voteHigher: 10,
             genres: [],
@@ -307,7 +307,7 @@
         function clearFilters() {
             home.filtering = {
                 yearLower: 1900,
-                yearHigher: 2017,
+                yearHigher: new Date().getFullYear(),
                 voteLower: 0,
                 voteHigher: 10,
                 genres: [],
